@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/flp"
+            android:overScrollMode="always"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="10dp"
+        android:fitsSystemWindows="true"
+
+        >
+
+
+        <TextView
+            android:id="@+id/one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Enter your mobile number\n to get started:"
+            android:textColor="@android:color/black"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/two"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/one"
+            android:layout_marginTop="8dp"
+            android:text="You'll get a One Time Password to this number" />
+
+        <TextView
+            android:id="@+id/three"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/two"
+            android:layout_marginTop="20dp"
+            android:text="MOBILE NUMBER:" />
+
+        <EditText
+            android:id="@+id/inputPHN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/three"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@android:color/black"
+            android:inputType="number|phone"
+            android:maxLength="10" />
+
+        <EditText
+            android:id="@+id/inputOTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/three"
+            android:layout_marginTop="2dp"
+            android:backgroundTint="@android:color/black"
+            android:inputType="number|phone"
+            android:maxLength="6"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/five"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/inputPHN"
+            android:text="By registering you are agreeing to our" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/five"
+            android:layout_marginTop="2dp"
+            android:id="@+id/tandc"
+            android:text="@string/terms_and_conditions"
+            android:textColor="@color/flp"
+            android:textStyle="" />
+
+        <Button
+            android:id="@+id/btn_getotp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/inputdesignsolid"
+            android:enabled="false"
+            android:text="get otp" />
+        <Button
+            android:id="@+id/btn_putotp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/inputdesignsolid"
+            android:enabled="false"
+            android:textColor="@android:color/white"
+            android:text="Verify"
+            android:visibility="invisible" />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <fragment
+        android:id="@+id/nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@android:color/white">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/wpimg"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/wp" />
+
+                    <TextView
+                        android:id="@+id/wptxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/wpimg"
+                        android:text="Wall Poster"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/mc"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/wptxt"
+                        android:src="@drawable/mc" />
+
+                    <TextView
+                        android:id="@+id/mctxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/wptxt"
+                        android:text="Coffee Mug"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/mcs"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/mctxt"
+                        android:src="@drawable/mcs" />
+
+                    <TextView
+                        android:id="@+id/mcstxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/mctxt"
+                        android:text="Mobile Cover"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/psk"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/mcstxt"
+                        android:src="@drawable/psk" />
+
+                    <TextView
+                        android:id="@+id/psktxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/mcstxt"
+                        android:text="Pop Socket"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/fr"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/psktxt"
+                        android:src="@drawable/fr" />
+
+                    <TextView
+                        android:id="@+id/frtxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/psktxt"
+                        android:text="Photo Frame"
+                        android:textColor="@android:color/black" />
+
+                    <ImageView
+                        android:id="@+id/vc"
+                        android:layout_width="45dp"
+                        android:layout_height="45dp"
+                        android:layout_marginLeft="25dp"
+                        android:layout_toRightOf="@id/frtxt"
+                        android:src="@drawable/vc" />
+
+                    <TextView
+                        android:id="@+id/vctxt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mc"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/frtxt"
+                        android:text="Visiting Card"
+                        android:textColor="@android:color/black" />
+
+
+                </RelativeLayout>
+            </HorizontalScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/horizontalScroller"
+                android:layout_width="match_parent"
+                android:layout_height="225dp"
+                android:background="@android:color/darker_gray"
+                android:orientation="horizontal" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViewer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:foregroundGravity="bottom"
+                android:orientation="horizontal" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:src="@drawable/hats" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

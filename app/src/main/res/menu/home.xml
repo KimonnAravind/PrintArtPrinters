@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_Logout"
+        android:icon="@drawable/cart"
+        android:iconTint="@android:color/black"
+        app:showAsAction="ifRoom"
+        android:title="Add" />
+
+    <item
+        android:id="@+id/profile"
+        android:orderInCategory="100"
+        android:icon="@drawable/thoppi"
+        android:title="My Profile"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/Help"
+        android:orderInCategory="100"
+        android:icon="@drawable/thoppi"
+        android:title="Help and Support"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action"
+        android:orderInCategory="100"
+        android:icon="@drawable/thoppi"
+        android:title="@string/logout"
+        app:showAsAction="never" />
+
+</menu>

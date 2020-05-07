@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TermsandConditionsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/flp"
+            android:overScrollMode="always"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top"
+        android:layout_margin="16dp"
+        android:text="This Application is Belongs to PrintArt Sivakasi, we are small scale startup company, we are legaly registered organisation with Indian government, In PrintArt we are doing all knid of Digital Printing Services
+and sales." />
+
+    <TextView
+        android:id="@+id/two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/one"
+        android:layout_margin="16dp"
+        android:text="Here we are assuring that we will never share our customer details with any one until or unless it is related to the customer service. Here we did not used any copyrighted or illegal content." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/two"
+        android:id="@+id/three"
+        android:layout_margin="16dp"
+        android:text="The delivery date we have mentiond in the app when you are placing an order is expected date, may be due to some technical or other issues it may get delayed, and we have all rights to cancel any order incase of lack of material or some other issues, for all cancellation full amount will be refuned withing 24 hours." />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/three"
+        android:layout_margin="16dp"
+        android:id="@+id/four"
+        android:text="Order will be rejected if any problem in delivering to the mentioned location. We will not refund until there is a cancellation from our side or damange of product during the delivery."/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/four"
+        android:layout_margin="16dp"
+        android:id="@+id/five"
+        android:text="All orders will be verified and then only move for further stages of delivery. we do not have our own transport, so the product will reach you threw some legal third party parcel service, we will keep supporting with you in tracking the product details."/>
+<TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_below="@id/five"
+    android:text="Thank You for you Support!"
+    android:textAlignment="center"
+    android:textColor="@android:color/black"
+    android:textStyle="bold"
+    />
+</RelativeLayout>

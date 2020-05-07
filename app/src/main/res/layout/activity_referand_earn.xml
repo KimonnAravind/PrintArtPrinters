@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ReferandEarnActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarS"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/flp"
+            android:overScrollMode="always"
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="8dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="125dp"
+            android:text="Refer you friend and get 50 Points for each referal and your friend will get additional 20 points!"
+            android:textAlignment="center" />
+
+        <ImageView
+            android:id="@+id/dpicture"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_below="@+id/sam"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/rae"
+
+            />
+
+        <TextView
+            android:id="@+id/referfrnds"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dpicture"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:text="Click here to share your Referal code!"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/rcs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/referfrnds"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="code"
+            android:textColor="@android:color/holo_red_dark"
+            android:textSize="40dp"
+
+            />
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

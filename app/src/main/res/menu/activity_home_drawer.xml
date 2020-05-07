@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:title="PrintArt Sivakasi">
+            <menu>
+                <group
+                    android:id="@+id/menu_top"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/printart_sivakasi"
+                        android:icon="@drawable/shop"
+                        android:title="PrintArt Sivakasi" />
+                    <item
+                        android:id="@+id/your_designs"
+                        android:icon="@drawable/all"
+                        android:title="Your Designs" />
+                    <item
+                        android:id="@+id/businessorbulk"
+                        android:icon="@drawable/bulk"
+                        android:title="Business/Bulk Orders" />
+                    <item
+                        android:id="@+id/viewall"
+                        android:icon="@drawable/ic_menu_gallery"
+                        android:title="View All" />
+                </group>
+            </menu>
+        </item>
+        <item android:title="Your Activities">
+            <menu>
+                <group
+                    android:id="@+id/menu_top1"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/profile"
+                        android:icon="@drawable/profile"
+                        android:title="Profile" />
+                    <item
+                        android:id="@+id/cart"
+                        android:icon="@drawable/ic_add_shopping_cart_black_24dp"
+                        android:title="Cart" />
+                    <item
+                        android:id="@+id/wishlist"
+                        android:icon="@drawable/ic_favorite_black_24dp"
+                        android:title="Wishlist" />
+                    <item
+                        android:id="@+id/myorders"
+                        android:icon="@drawable/truck"
+                        android:title="My Orders" />
+                </group>
+            </menu>
+        </item>
+
+        <item android:title="Support and Services">
+            <menu>
+                <group
+                    android:id="@+id/menu_top2"
+                    android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/referandearn"
+                        android:icon="@drawable/ic_menu_share"
+                        android:title="Refer and Earn" />
+                    <item
+                        android:id="@+id/helpandsupport"
+                        android:icon="@drawable/customer"
+                        android:title="Help and Support" />
+                    <item
+                        android:id="@+id/signout"
+                        android:icon="@drawable/exit"
+                        android:title="Sign out" />
+                </group>
+            </menu>
+        </item>
+
+       </group>
+
+</menu>
