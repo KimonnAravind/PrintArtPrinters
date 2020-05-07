@@ -154,17 +154,13 @@
                 android:foregroundGravity="bottom"
                 android:orientation="horizontal"
                  />
-
-
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
-                android:layout_marginTop="5dp"
                 android:foregroundGravity="bottom"
                 android:orientation="vertical" />
-
 
             <ImageView
                 android:layout_width="match_parent"
