@@ -43,6 +43,8 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
     }
 
 
+
+
     @NonNull
     @Override
     public Horizontalviewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
