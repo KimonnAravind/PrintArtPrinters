@@ -81,7 +81,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     List<Banners> bannersList = new ArrayList<>();
     DatabaseReference reference;
     DatabaseReference banner;
-    RecyclerView recyclerView,recyclerview1;
+    RecyclerView recyclerView, recyclerview1;
     FirebaseRecyclerAdapter<DisplayCategory, CategoryViewHolder> adapter;
     FirebaseRecyclerAdapter<NestedCategory, NestedCategoryViewHolder> adapter1;
     RecyclerView.LayoutManager manager;
@@ -115,21 +115,21 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        LinearLayoutManager layoutManagerH= new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManagerH = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         manager = new LinearLayoutManager(this);
         reference = FirebaseDatabase.getInstance().getReference("ProductCategory");
         recyclerView = findViewById(R.id.recyclerViewer);
         recyclerView.setLayoutManager(manager);
-        recyclerview1=findViewById(R.id.horizontalScroller);
+        recyclerview1 = findViewById(R.id.horizontalScroller);
         recyclerview1.setHasFixedSize(true);
         recyclerview1.setLayoutManager(layoutManagerH);
 
         FirebaseRecyclerOptions<HorizontalScroller> options =
                 new FirebaseRecyclerOptions.Builder<HorizontalScroller>()
-                .setQuery(banner, HorizontalScroller.class).build();
+                        .setQuery(banner, HorizontalScroller.class).build();
 
-         adapterH = new HorizontalAdapter(options);
-         recyclerview1.setAdapter(adapterH);
+        adapterH = new HorizontalAdapter(options);
+        recyclerview1.setAdapter(adapterH);
         adapterH.startListening();
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocompletetextview);
         autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(getBaseContext().getResources().getColor(R.color.colorPrimaryDark)));
@@ -138,8 +138,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         UserPortal = FirebaseDatabase.getInstance().getReference();
         EndUserPortal = FirebaseDatabase.getInstance().getReference().child("EndUsers");
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
-
-        gihub
 
 
         navigation.setOnNavigationItemSelectedListener(this);
@@ -377,9 +375,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
 
-
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -439,7 +434,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }
             case R.id.your_designs: {
                 //pending
-                    break;
+                break;
             }
             case R.id.businessorbulk: {
                 //pending

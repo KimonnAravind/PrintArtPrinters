@@ -149,9 +149,11 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/horizontalScroller"
                 android:layout_width="match_parent"
-                android:layout_height="225dp"
-                android:background="@android:color/darker_gray"
-                android:orientation="horizontal" />
+                android:layout_height="150dp"
+                android:layout_gravity="bottom"
+                android:foregroundGravity="bottom"
+                android:orientation="horizontal"
+                 />
 
 
             <androidx.recyclerview.widget.RecyclerView
@@ -159,8 +161,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="bottom"
+                android:layout_marginTop="5dp"
                 android:foregroundGravity="bottom"
-                android:orientation="horizontal" />
+                android:orientation="vertical" />
 
 
             <ImageView

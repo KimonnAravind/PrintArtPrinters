@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.assigned.printart.MainActivity;
@@ -34,10 +35,12 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
 
 
         if (holder.count == 1) {
+
             String x = model.getImage();
             Picasso.get().load(x).into(holder.imageView);
             holder.count = holder.count + 1;
         } else {
+            holder.cardView1.setVisibility(View.GONE);
             String x = model.getImage();
             Picasso.get().load(x).into(holder.imageView1);
         }
@@ -52,12 +55,15 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
 
     static class Horizontalviewholder extends RecyclerView.ViewHolder {
         ImageView imageView, imageView1;
+        CardView cardView1, cardView2;
         public static int count = 1;
 
         public Horizontalviewholder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imgviewis);
             imageView1 = itemView.findViewById(R.id.imgviewiss);
+            cardView1 = itemView.findViewById(R.id.card_view1);
+            cardView2 = itemView.findViewById(R.id.card_view2);
         }
     }
 }
