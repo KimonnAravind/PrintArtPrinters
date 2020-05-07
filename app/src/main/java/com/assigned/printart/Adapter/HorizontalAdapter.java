@@ -39,8 +39,10 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
             String x = model.getImage();
             Picasso.get().load(x).into(holder.imageView);
             holder.count = holder.count + 1;
+
         } else {
             holder.cardView1.setVisibility(View.GONE);
+            holder.cardView2.setVisibility(View.VISIBLE);
             String x = model.getImage();
             Picasso.get().load(x).into(holder.imageView1);
         }
