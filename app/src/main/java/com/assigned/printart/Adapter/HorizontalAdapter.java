@@ -32,6 +32,7 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
     @Override
     protected void onBindViewHolder(@NonNull Horizontalviewholder holder, int position, @NonNull HorizontalScroller model) {
 
+
         if (holder.count == 1) {
             String x = model.getImage();
             Picasso.get().load(x).into(holder.imageView);
