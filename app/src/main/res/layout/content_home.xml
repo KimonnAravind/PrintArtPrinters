@@ -42,7 +42,7 @@
                         android:layout_width="45dp"
                         android:layout_height="45dp"
                         android:layout_marginLeft="10dp"
-                        android:src="@drawable/wp" />
+                        android:src="@drawable/wpmock" />
 
                     <TextView
                         android:id="@+id/wptxt"

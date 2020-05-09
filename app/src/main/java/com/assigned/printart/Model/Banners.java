@@ -5,8 +5,7 @@ public class Banners
 
     private String image;
 
-    public Banners()
-    {
+    public Banners() {
     }
     public Banners(String image) {
         this.image = image;
