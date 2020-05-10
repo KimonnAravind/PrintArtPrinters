@@ -152,8 +152,14 @@
                 android:layout_height="150dp"
                 android:layout_gravity="bottom"
                 android:foregroundGravity="bottom"
-                android:orientation="horizontal"
-                 />
+                android:orientation="horizontal" />
+
+            <ImageView
+                android:id="@+id/refandearn"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:src="@drawable/randw" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerViewer"
                 android:layout_width="match_parent"

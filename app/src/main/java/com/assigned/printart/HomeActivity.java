@@ -68,7 +68,6 @@ import io.paperdb.Paper;
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
 
     private AppBarConfiguration mAppBarConfiguration;
-
     String typepasser;
     private Timer timer;
     ImageView wpimg, mc, mcs, psk, fr, vc;
@@ -94,6 +93,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         wpimg = (ImageView) findViewById(R.id.wpimg);
         mc = (ImageView) findViewById(R.id.mc);
         mcs = (ImageView) findViewById(R.id.mcs);
@@ -105,8 +105,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setTitle("PrintArt");
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
         toolbar.setTitleTextAppearance(this, R.style.RobotoBoldTextAppearance);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View header_view = navigationView.getHeaderView(0);
@@ -123,12 +122,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         recyclerview1 = findViewById(R.id.horizontalScroller);
         recyclerview1.setHasFixedSize(true);
         recyclerview1.setLayoutManager(layoutManagerH);
-
-        FirebaseRecyclerOptions<HorizontalScroller> options =
+        FirebaseRecyclerOptions<HorizontalScroller> optionsb =
                 new FirebaseRecyclerOptions.Builder<HorizontalScroller>()
                         .setQuery(banner, HorizontalScroller.class).build();
-
-        adapterH = new HorizontalAdapter(options);
+        adapterH = new HorizontalAdapter(optionsb);
         recyclerview1.setAdapter(adapterH);
         adapterH.startListening();
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocompletetextview);
@@ -150,74 +147,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        autoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                final int DRAWABLE_RIGHT = 2;
-
-                if (event.getAction() == MotionEvent.ACTION_UP) {
-                    if (event.getRawX() >= (autoCompleteTextView.getRight() - autoCompleteTextView.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
-                        Intent intent = new Intent(HomeActivity.this, AllProductsActivity.class);
-                        typepasser = autoCompleteTextView.getText().toString();
-                        intent.putExtra("Type", "Default");
-                        startActivity(intent);
-                        return true;
-                    }
-                }
-                return false;
-
-            }
-        });
-
-        wpimg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Wall Poster";
-                gotonext();
-            }
-        });
-        mc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Coffee Mug";
-                gotonext();
-            }
-        });
-        mcs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Mobile_Cover";
-                gotonext();
-            }
-        });
-        psk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Pop_Socket";
-                gotonext();
-            }
-        });
-        fr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Photo_Frame";
-                gotonext();
-            }
-        });
-        vc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                typepasser = "Visiting_Card";
-                gotonext();
-            }
-        });
-
+//////////////////////////////////////////////
         Query sorting;
         Random random = new Random();
         int randomNumber = random.nextInt(4);
@@ -311,6 +241,78 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         adapter.startListening();
         adapter.notifyDataSetChanged();
         recyclerView.setAdapter(adapter);
+
+
+        ///////////////////////////////////
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        autoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (autoCompleteTextView.getRight() - autoCompleteTextView.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        Intent intent = new Intent(HomeActivity.this, AllProductsActivity.class);
+                        typepasser = autoCompleteTextView.getText().toString();
+                        intent.putExtra("Type", "Default");
+                        startActivity(intent);
+                        return true;
+                    }
+                }
+                return false;
+
+            }
+        });
+
+        wpimg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Wall Poster";
+                gotonext();
+            }
+        });
+        mc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Coffee Mug";
+                gotonext();
+            }
+        });
+        mcs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Mobile_Cover";
+                gotonext();
+            }
+        });
+        psk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Pop_Socket";
+                gotonext();
+            }
+        });
+        fr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Photo_Frame";
+                gotonext();
+            }
+        });
+        vc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                typepasser = "Visiting_Card";
+                gotonext();
+            }
+        });
+
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View headerView = navigationView.getHeaderView(0);
