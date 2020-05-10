@@ -1,43 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
     android:layout_marginBottom="10dp"
-    app:cardCornerRadius="10dp"
-    android:elevation="35dp">
-    <RelativeLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:layout_height="wrap_content">
+    android:elevation="35dp"
+    android:visibility="visible"
+    app:cardCornerRadius="10dp">
 
-        <TextView
-            android:id="@+id/category_name"
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/firstone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:textSize="20sp"
-            android:textColor="#000"
-            android:text="CategoryName"
-            />
+            android:background="@android:color/white">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_below="@id/category_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="10dp"
-            />
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/category_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="CategoryName"
+                android:textColor="#000"
+                android:textSize="20sp" />
 
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/category_name"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp" />
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/secondone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@android:color/holo_red_dark"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </LinearLayout>
 </androidx.cardview.widget.CardView>
 
 

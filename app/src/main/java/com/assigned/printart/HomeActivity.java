@@ -55,6 +55,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,15 +86,18 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     FirebaseRecyclerAdapter<NestedCategory, NestedCategoryViewHolder> adapter1;
     RecyclerView.LayoutManager manager;
     String s;
+    int numbercon;
     int positionpro = 0;
     String[] products = new String[]{"Wall Poster", "Coffee Mug", "Visiting Card", "Mobile Cover", "Pop Socket", "Photo Frame"};
     CircleImageView img;
+    AVLoadingIndicatorView loader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        loader = (AVLoadingIndicatorView) findViewById(R.id.loader);
         wpimg = (ImageView) findViewById(R.id.wpimg);
         mc = (ImageView) findViewById(R.id.mc);
         mcs = (ImageView) findViewById(R.id.mcs);
@@ -177,11 +181,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 .setQuery(sorting, DisplayCategory.class).build();
         adapter = new FirebaseRecyclerAdapter<DisplayCategory, CategoryViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull CategoryViewHolder holder, int position, @NonNull final DisplayCategory displayCategory) {
+            protected void onBindViewHolder(@NonNull final CategoryViewHolder holder, int position, @NonNull final DisplayCategory displayCategory) {
+                //Here
+                Log.e("Printing",""+numbercon++);
+
                 CategoryViewHolder.CategoryName.setText(displayCategory.getCategoryName());
                 FirebaseRecyclerOptions<NestedCategory> options1 = new FirebaseRecyclerOptions.Builder<NestedCategory>()
                         .setQuery(reference.child(displayCategory.getCategoryID()).child("About"), NestedCategory.class)
                         .build();
+
+
+
                 adapter1 = new FirebaseRecyclerAdapter<NestedCategory, NestedCategoryViewHolder>(options1) {
                     @Override
                     protected void onBindViewHolder(@NonNull NestedCategoryViewHolder holder, int position, @NonNull final NestedCategory nestedCategory) {
@@ -189,12 +199,15 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         holder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
+
                                 Intent intent = new Intent(HomeActivity.this, DisplayProductActivity.class);
                                 intent.putExtra("Category", displayCategory.getCategoryID());
                                 intent.putExtra("TypeID", nestedCategory.getType());
                                 startActivity(intent);
                             }
                         });
+                        loader.setVisibility(View.GONE);
+
                     }
 
                     @Override
