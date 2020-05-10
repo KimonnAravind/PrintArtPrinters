@@ -185,6 +185,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 //Here
                 Log.e("Printing",""+numbercon++);
 
+                if(numbercon==2)
+                {
+                    holder.catimgv.setVisibility(View.VISIBLE);
+                    holder.catimgv.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(HomeActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
                 CategoryViewHolder.CategoryName.setText(displayCategory.getCategoryName());
                 FirebaseRecyclerOptions<NestedCategory> options1 = new FirebaseRecyclerOptions.Builder<NestedCategory>()
                         .setQuery(reference.child(displayCategory.getCategoryID()).child("About"), NestedCategory.class)

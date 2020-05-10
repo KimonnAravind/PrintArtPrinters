@@ -1,6 +1,7 @@
 package com.assigned.printart.Viewer;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
     public static RecyclerView.LayoutManager manager;
     public static TextView CategoryName;
     public static RelativeLayout relativeLayout;
+    public static ImageView catimgv;
 
     public CategoryViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,6 +26,6 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
         category_recyclerView = itemView.findViewById(R.id.recyclerView);
         category_recyclerView.setLayoutManager(manager);
         relativeLayout = itemView.findViewById(R.id.firstone);
-
+        catimgv = itemView.findViewById(R.id.catimg);
     }
 }
