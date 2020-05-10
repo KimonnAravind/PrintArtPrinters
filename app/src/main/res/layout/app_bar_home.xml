@@ -41,7 +41,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:background="@drawable/button"
-                android:drawableStart="@drawable/sicon"
+                android:drawableRight="@drawable/sicon"
                 android:hint="@string/search"
                 android:inputType="text"
                 android:padding="8dp"

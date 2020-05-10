@@ -160,6 +160,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 final int DRAWABLE_RIGHT = 2;
+
                 if (event.getAction() == MotionEvent.ACTION_UP) {
                     if (event.getRawX() >= (autoCompleteTextView.getRight() - autoCompleteTextView.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
                         Intent intent = new Intent(HomeActivity.this, AllProductsActivity.class);
