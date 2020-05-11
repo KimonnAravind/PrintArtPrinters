@@ -32,6 +32,8 @@
             android:id="@+id/toolbar1"
             android:layout_width="match_parent"
             android:layout_height="50dp"
+            android:focusableInTouchMode="true"
+            android:focusable="true"
             app:popupTheme="@style/AppTheme.PopupOverlay">
 
             <androidx.appcompat.widget.AppCompatAutoCompleteTextView

@@ -183,10 +183,9 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             protected void onBindViewHolder(@NonNull final CategoryViewHolder holder, int position, @NonNull final DisplayCategory displayCategory) {
                 //Here
-                Log.e("Printing",""+numbercon++);
-
-                if(numbercon==2)
-                {
+                //Log.e("Printing", "" + );
+                numbercon++;
+                if (numbercon == 2) {
                     holder.catimgv.setVisibility(View.VISIBLE);
                     holder.catimgv.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -200,7 +199,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 FirebaseRecyclerOptions<NestedCategory> options1 = new FirebaseRecyclerOptions.Builder<NestedCategory>()
                         .setQuery(reference.child(displayCategory.getCategoryID()).child("About"), NestedCategory.class)
                         .build();
-
 
 
                 adapter1 = new FirebaseRecyclerAdapter<NestedCategory, NestedCategoryViewHolder>(options1) {

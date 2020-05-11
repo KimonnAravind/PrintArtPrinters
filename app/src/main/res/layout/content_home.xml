@@ -162,10 +162,13 @@
             <ImageView
                 android:id="@+id/refandearn"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_marginTop="7dp"
+                android:layout_marginBottom="7dp"
                 android:layout_below="@id/loader"
                 android:src="@drawable/randw" />
-
+ap
             <com.wang.avi.AVLoadingIndicatorView
                 android:id="@+id/loader"
                 android:layout_width="wrap_content"
