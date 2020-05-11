@@ -3,6 +3,6 @@
     <color name="colorPrimary">#00827f</color>
     <color name="colorPrimaryDark">#ffff</color>
     <color name="colorAccent">@color/flp</color>
-    <color name="flp">#1192D4</color>
+    <color name="flp">#EF2D52</color>
     <color name="flpp">@color/flp</color>
 </resources>

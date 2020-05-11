@@ -38,7 +38,7 @@ public class DisplayProductActivity extends AppCompatActivity
 {
     public RecyclerView recyclerViewdisplay;
     RecyclerView.LayoutManager layoutManager;
-    GridLayoutManager gridLayoutManager;
+  //  GridLayoutManager gridLayoutManager;
     private String TypeID;
     Query sorting;
     private String CategoryID;
@@ -60,13 +60,14 @@ public class DisplayProductActivity extends AppCompatActivity
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         recyclerViewdisplay=(RecyclerView)findViewById(R.id.recyclerViewDisplay);
         recyclerViewdisplay.setHasFixedSize(false);
-        gridLayoutManager=new GridLayoutManager(getApplicationContext(),2);
+        //gridLayoutManager=new GridLayoutManager(getApplicationContext(),2);
+        layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
         CategoryID=getIntent().getStringExtra("Category");
         TypeID=getIntent().getStringExtra("TypeID");
         DisplayReference= FirebaseDatabase.getInstance().getReference().child("ShowingProducts").child(CategoryID);
         wishListReference=FirebaseDatabase.getInstance().getReference().child("WishList").child(str1);
         layoutManager = new LinearLayoutManager(this);
-        recyclerViewdisplay.setLayoutManager(gridLayoutManager);
+        recyclerViewdisplay.setLayoutManager(layoutManager);
         Toast.makeText(this, ""+TypeID, Toast.LENGTH_SHORT).show();
         if(TypeID.equals("01"))
         {

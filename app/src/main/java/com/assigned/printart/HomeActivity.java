@@ -276,7 +276,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void rande() {
-
         if (s.equals("0000000000")) {
             taketoreg();
         } else {
