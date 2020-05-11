@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private AppBarConfiguration mAppBarConfiguration;
     String typepasser;
     private Timer timer;
+    ImageView imageViewrande;
     ImageView wpimg, mc, mcs, psk, fr, vc;
     private LinearLayout dotslayout;
     AutoCompleteTextView autoCompleteTextView;
@@ -96,7 +97,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        imageViewrande = (ImageView) findViewById(R.id.refandearn);
         loader = (AVLoadingIndicatorView) findViewById(R.id.loader);
         wpimg = (ImageView) findViewById(R.id.wpimg);
         mc = (ImageView) findViewById(R.id.mc);
@@ -266,6 +267,23 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
 
         ///////////////////////////////////
+        imageViewrande.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rande();
+            }
+        });
+    }
+
+    private void rande() {
+
+        if (s.equals("0000000000")) {
+            taketoreg();
+        } else {
+            Intent intent = new Intent(HomeActivity.this, ReferandEarnActivity.class);
+            intent.putExtra("Contact", s);
+            startActivity(intent);
+        }
     }
 
     @Override

@@ -132,17 +132,13 @@ public class ReferandEarnActivity extends AppCompatActivity {
 
     @Override
     public boolean onSupportNavigateUp() {
-        Intent intent = new Intent(ReferandEarnActivity.this, HomeActivity.class);
         finish();
-        startActivity(intent);
         return super.onSupportNavigateUp();
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(ReferandEarnActivity.this, HomeActivity.class);
         finish();
-        startActivity(intent);
     }
 }
