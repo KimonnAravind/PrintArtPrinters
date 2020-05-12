@@ -108,6 +108,7 @@
                             android:layout_marginTop="8dp"
                             android:background="@drawable/inputdesignsolid"
                             android:text="Change"
+                            android:textColor="@android:color/white"
                             android:visibility="invisible" />
 
                         <Button
@@ -118,6 +119,7 @@
                             android:layout_marginTop="8dp"
                             android:background="@drawable/inputdesignsolid"
                             android:text="Add/Update"
+                            android:textColor="@android:color/white"
                             android:visibility="invisible" />
                     </FrameLayout>
                 </LinearLayout>
