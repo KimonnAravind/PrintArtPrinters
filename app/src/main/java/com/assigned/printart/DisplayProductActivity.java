@@ -92,9 +92,11 @@ public class DisplayProductActivity extends AppCompatActivity {
                 holder.PSPrice.setText("₹" + model.getPsp());
                 holder.POPrice.setText("₹" + model.getPpriceO() + " ");
                 holder.Pdes.setText(model.getPdes());
-                holder.Seller.setText(model.getSeller());
+                holder.Seller.setText(" "+model.getSeller()+" ");
                 holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-
+                holder.b1.setText(" "+model.getType()+" ");
+                holder.b2.setText(" "+model.getType1()+" ");
+                holder.b3.setText(" "+model.getType2()+" ");
                 int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
                 holder.discount.setText(""+(100-percent)+"%offer");
                 Picasso.get().load(model.getPro()).into(holder.imgv);

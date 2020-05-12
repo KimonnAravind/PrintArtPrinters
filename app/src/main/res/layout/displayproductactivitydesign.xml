@@ -104,19 +104,35 @@
             android:id="@+id/b1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_below="@+id/productofferPrice"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/cview"
+            android:background="@drawable/blankpopups"
+            android:text="one" />
 
         <TextView
             android:id="@+id/b2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_below="@+id/productofferPrice"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/b1"
+            android:background="@drawable/blankpopups"
+            android:text="two" />
 
         <TextView
             android:id="@+id/b3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            />
+            android:layout_below="@+id/b1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/cview"
+            android:background="@drawable/blankpopups"
+            android:text="three" />
+
         <TextView
             android:id="@+id/seller"
             android:layout_width="wrap_content"
