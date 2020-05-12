@@ -62,11 +62,9 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     private int currentposition = 0;
     private DatabaseReference ProductDetailsRef;
     TextView t1, t2, t3, t4, t5, t6,offs;
-
     DatabaseReference databaseReference;
     private TextView Pname, PDes, POprice, PSprice, Sellers;
     RecyclerView recyclerView;
-
     String strs;
     Spinner spin;
     RecyclerView.LayoutManager manager;
@@ -74,7 +72,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     String h = "0";
     HashMap<String, Object> PriceMap = new HashMap<>();
     ImageView addtowishlist;
-
+    String np;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -169,6 +167,36 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.other, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        np = Paper.book().read(PaperStore.UserLoginID);
+        switch (item.getItemId()) {
+            case R.id.actionsL:
+                if (np.equals("0000000000")) {
+                    Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
+                    Toast.makeText(this, "Login to explore more!", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
+                    intent.putExtra("us", np);
+                    startActivity(intent);
+                }
+                break;
+            case R.id.actionsLs:
+                if (np.equals("0000000000")) {
+                    Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
+                    Toast.makeText(this, "Login to explore more!", Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(ShowDetailsActivity.this, WListACtivity.class);
+                    intent.putExtra("Contact", np);
+                    startActivity(intent);
+                }
+                break;
+        }
+                    return super.onOptionsItemSelected(item);
     }
 
     @Override

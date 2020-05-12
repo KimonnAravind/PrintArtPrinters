@@ -71,6 +71,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     private AppBarConfiguration mAppBarConfiguration;
     String typepasser;
     private Timer timer;
+    String secondimg;
     ImageView imageViewrande;
     ImageView wpimg, mc, mcs, psk, fr, vc;
     private LinearLayout dotslayout;
@@ -87,6 +88,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     FirebaseRecyclerAdapter<NestedCategory, NestedCategoryViewHolder> adapter1;
     RecyclerView.LayoutManager manager;
     String s;
+    DatabaseReference UserPortal;
     int numbercon;
     int positionpro = 0;
     String[] products = new String[]{"Wall Poster", "Coffee Mug", "Visiting Card", "Mobile Cover", "Pop Socket", "Photo Frame"};
@@ -136,7 +138,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocompletetextview);
         autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(getBaseContext().getResources().getColor(R.color.colorPrimaryDark)));
         autoCompleteTextView.setAdapter(new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_list_item_1, products));
-        DatabaseReference UserPortal;
+
         UserPortal = FirebaseDatabase.getInstance().getReference();
         EndUserPortal = FirebaseDatabase.getInstance().getReference().child("EndUsers");
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
@@ -188,6 +190,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 numbercon++;
                 if (numbercon == 2) {
                     holder.catimgv.setVisibility(View.VISIBLE);
+                    //Picasso.get().load(secondimg).into(holder.catimgv);
                     holder.catimgv.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
@@ -289,6 +292,22 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onStart() {
         super.onStart();
 
+        UserPortal.child("Boards").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    Picasso.get().load(dataSnapshot.child("one").getValue().toString()).into(imageViewrande);
+                    secondimg = dataSnapshot.child("two").getValue().toString();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
         autoCompleteTextView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -378,7 +397,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             Paper.book().write(PaperStore.UserLoginID, "0000000000");
             s = Paper.book().read(PaperStore.UserLoginID);
         }
-        Toast.makeText(this, "" + s, Toast.LENGTH_SHORT).show();
         EndUserPortal.child(s).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

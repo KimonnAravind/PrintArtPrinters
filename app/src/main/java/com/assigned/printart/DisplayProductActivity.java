@@ -24,6 +24,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -105,6 +106,9 @@ public class DisplayProductActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
 
+                        Snackbar.make(v, "Added to Wish List", Snackbar.LENGTH_LONG)
+                                .setAction("", null).show();
+
                         if (!str1.equals("0000000000")) {
                             copyrecord(DisplayReference.child(model.getProID()), wishListReference.child(model.getProID()));
                         } else {
@@ -155,6 +159,7 @@ public class DisplayProductActivity extends AppCompatActivity {
                 wishListReference.setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+
                         Toast.makeText(DisplayProductActivity.this, "Added to wishlist!", Toast.LENGTH_SHORT).show();
                     }
                 });
