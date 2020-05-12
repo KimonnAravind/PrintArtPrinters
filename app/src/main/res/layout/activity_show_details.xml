@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".ShowDetailsActivity">
 
 
@@ -33,23 +34,31 @@
             </com.google.android.material.appbar.AppBarLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/productviewerpage"
                     android:layout_width="match_parent"
                     android:layout_height="350dp"
+                    android:layout_centerInParent="true"
                     android:layout_margin="8dp" />
 
                 <ImageView
                     android:id="@+id/addtowishlist"
                     android:layout_width="30dp"
                     android:layout_height="30dp"
-                    android:layout_marginLeft="335dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/ic_favorite_border_black_24dp" />
 
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/ic_favorite_black_24dp" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/productviewerpage"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/moredot" />
             </RelativeLayout>
 
 
@@ -60,26 +69,17 @@
                 android:layout_marginLeft="5dp"
                 android:text="ProductName"
                 android:textColor="@android:color/black"
-                android:textSize="25dp"
+                android:textSize="20dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/ProductDescription"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_marginLeft="5dp"
-
                 android:text="ProductDescription"
-                android:textSize="20dp"
-                android:textStyle="italic" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:backgroundTintMode="screen"
-                android:text="Offer Price" />
+                android:textSize="17dp"
+                 />
 
 
             <LinearLayout
@@ -105,9 +105,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-
                     android:text="Original Price"
                     android:textSize="19dp" />
+
+                <TextView
+                    android:id="@+id/offerp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="off"
+                    android:textColor="@android:color/holo_green_light"
+                    android:textSize="19dp"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
@@ -120,19 +129,32 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
+                    android:background="@drawable/popups"
                     android:text="SellerName"
-                    android:textColor="@android:color/black"
-                    android:textSize="22sp" />
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
+                    android:textSize="17dp"
+                    android:textStyle="bold" />
 
                 <Spinner
                     android:id="@+id/spinningID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="50dp"
                     android:entries="@array/numis"
                     android:spinnerMode="dialog" />
+
             </LinearLayout>
 
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:enabled="false"
+                android:background="@android:color/darker_gray" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -291,10 +313,11 @@ PrintArt serviece within 24 to 36 hours."
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_gravity="bottom"
-            android:background="@drawable/bar2"
+            android:background="@drawable/redbottom"
             app:itemIconTint="@android:color/black"
             app:itemTextColor="@android:color/black"
-            app:menu="@menu/addtocartandproceed"></com.google.android.material.bottomnavigation.BottomNavigationView>
+            app:menu="@menu/addtocartandproceed">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
     </FrameLayout>
 
 

@@ -61,7 +61,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     private List<ProductBanners> productBannersList = new ArrayList<>();
     private int currentposition = 0;
     private DatabaseReference ProductDetailsRef;
-    TextView t1, t2, t3, t4, t5, t6;
+    TextView t1, t2, t3, t4, t5, t6,offs;
 
     DatabaseReference databaseReference;
     private TextView Pname, PDes, POprice, PSprice, Sellers;
@@ -84,6 +84,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         Toast.makeText(this, "" + CategoryID, Toast.LENGTH_SHORT).show();
         times = getIntent().getStringExtra("Time");
         h = getIntent().getStringExtra("IDs");
+        offs = (TextView)findViewById(R.id.offerp);
         t1 = (TextView) findViewById(R.id.type1);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         strs = Paper.book().read(PaperStore.UserLoginID);
@@ -141,13 +142,16 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                     z = Integer.parseInt(dataSnapshot.child("PpriceO").getValue().toString());
                     POprice.setPaintFlags(POprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     PSprice.setText("₹" + dataSnapshot.child("Psp").getValue().toString());
-                    Sellers.setText(dataSnapshot.child("Seller").getValue().toString());
+                    Sellers.setText(" "+dataSnapshot.child("Seller").getValue().toString()+" ");
                     t1.setText(dataSnapshot.child("type").getValue().toString());
                     t2.setText(dataSnapshot.child("type1").getValue().toString());
                     t3.setText(dataSnapshot.child("type2").getValue().toString());
                     t4.setText(dataSnapshot.child("type3").getValue().toString());
                     t5.setText(dataSnapshot.child("type4").getValue().toString());
                     t6.setText(dataSnapshot.child("type5").getValue().toString());
+                    int percent =y  * 100 / z;
+                    offs.setText(""+(100-percent)+"%offer");
+
                 }
             }
 
