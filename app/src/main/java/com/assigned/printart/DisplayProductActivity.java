@@ -54,6 +54,7 @@ public class DisplayProductActivity extends AppCompatActivity {
         Toast.makeText(this, "" + str1, Toast.LENGTH_SHORT).show();
         Toolbar toolbar = findViewById(R.id.toolbarS);
         toolbar.setTitle("PrintArt");
+        toolbar.setTitleTextAppearance(this, R.style.RobotoBoldTextAppearance);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -100,7 +101,6 @@ public class DisplayProductActivity extends AppCompatActivity {
                 int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
                 holder.discount.setText(""+(100-percent)+"%offer");
                 Picasso.get().load(model.getPro()).into(holder.imgv);
-
                 holder.locl_buttons.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

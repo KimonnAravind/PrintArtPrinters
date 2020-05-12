@@ -51,7 +51,6 @@ import io.paperdb.Paper;
 public class ShowDetailsActivity extends AppCompatActivity implements ProductFirebaseViewer, BottomNavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemSelectedListener {
     String DisplayID, CategoryID;
     ViewPager products;
-
     ProductAdapter aptr;
     int tot, tot1, tot2;
     String qty = "1";
@@ -75,6 +74,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     String h = "0";
     HashMap<String, Object> PriceMap = new HashMap<>();
     ImageView addtowishlist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -176,13 +176,25 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         FirebaseRecyclerAdapter<DisplayProducts, Bottom> optionis = new FirebaseRecyclerAdapter<DisplayProducts, Bottom>(options) {
             @Override
             protected void onBindViewHolder(@NonNull Bottom holder, int position, @NonNull final DisplayProducts model) {
-                holder.name.setText(model.getPame());
+                /*holder.name.setText(model.getPame());
                 holder.description.setText(model.getPdes());
                 holder.pop.setText(model.getPpriceO());
                 holder.pop.setPaintFlags(holder.pop.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 holder.psp.setText("₹" + model.getPsp());
                 Picasso.get().load(model.getPro()).into(holder.pics);
-
+*/
+                holder.Pname.setText(model.getPame());
+                holder.PSPrice.setText("₹" + model.getPsp());
+                holder.POPrice.setText("₹" + model.getPpriceO() + " ");
+                holder.Pdes.setText(model.getPdes());
+                holder.Seller.setText(" "+model.getSeller()+" ");
+                holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                holder.b1.setText(" "+model.getType()+" ");
+                holder.b2.setText(" "+model.getType1()+" ");
+                holder.b3.setText(" "+model.getType2()+" ");
+                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText(""+(100-percent)+"%offer");
+                Picasso.get().load(model.getPro()).into(holder.imgv);
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -209,7 +221,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
             @NonNull
             @Override
             public Bottom onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bottom, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproductactivitydesign, parent, false);
                 Bottom holder = new Bottom(view);
                 return holder;
             }
@@ -223,6 +235,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
             public void onClick(View v) {
                 addtoWL(ProductDetailsRef.child(CategoryID).child(DisplayID), databaseReferenceforwl);
             }
+
             private void addtoWL(DatabaseReference child, final DatabaseReference databaseReferenceforwl) {
                 child.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -329,6 +342,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         }
         return true;
     }
+
     private void addtocart(final DatabaseReference child, final DatabaseReference child1) {
 
         wishListReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -405,6 +419,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                                     }
                                 });
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
                             }
@@ -424,6 +439,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                     }
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
