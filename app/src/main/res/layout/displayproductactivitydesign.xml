@@ -4,28 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="7dp"
     app:cardCornerRadius="10dp">
 
 
     <RelativeLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/images"
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="0dp"
-            android:background="@android:color/white" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cview"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:backgroundTint="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="true">
+
+            <RelativeLayout
+                android:id="@+id/relativelay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/images"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/images"
             android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/cview"
             android:text="Product Name"
             android:textColor="@android:color/black"
             android:textSize="20dp"
@@ -37,8 +58,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/name"
             android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/images"
             android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/cview"
             android:text="Product Description"
             android:textSize="15dp" />
 
@@ -49,8 +70,8 @@
             android:layout_below="@id/descriptioN"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/cview"
             android:text="Product SP"
-            android:layout_toRightOf="@id/images"
             android:textColor="@android:color/black"
             android:textSize="18dp"
             android:textStyle="italic|bold"
@@ -65,50 +86,58 @@
             android:layout_marginLeft="15dp"
             android:layout_marginTop="3dp"
             android:layout_toRightOf="@id/productofferPrice"
-            android:text="Product MC" />
+            android:text="MC" />
 
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descriptioN"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/productorigialPrice"
+            android:text="off"
+            android:textColor="@android:color/holo_green_light"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
+
+        <TextView
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            />
         <TextView
             android:id="@+id/seller"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/productofferPrice"
-            android:layout_marginLeft="10dp"
-            android:layout_toRightOf="@id/images"
-            android:layout_marginTop="10dp"
-            android:text="PRINTART SIVAKASI"
-            android:textColor="@android:color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"
-
-            />
-
-        <FrameLayout
-            android:layout_width="51dp"
-
-            android:layout_height="50dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginLeft="50dp"
-            android:layout_toRightOf="@id/seller"
-            android:background="@android:color/white">
+            android:layout_alignParentBottom="@bool/ph_enableToolbarShadow"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/popups"
+            android:text="PrintArt"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/locl_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:backgroundTint="@android:color/white"
-                android:backgroundTintMode="screen"
-                android:hapticFeedbackEnabled="false"
-                android:src="@drawable/ic_favorite_border_black_24dp"
-                app:backgroundTint="@android:color/black"
-                app:backgroundTintMode="screen"
-                app:elevation="2dp"
-                app:fabSize="mini" />
-
-
-        </FrameLayout>
-
+        <ImageView
+            android:id="@+id/locl_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/ic_favorite_border_black_24dp" />
     </RelativeLayout>
-
-
 </androidx.cardview.widget.CardView>

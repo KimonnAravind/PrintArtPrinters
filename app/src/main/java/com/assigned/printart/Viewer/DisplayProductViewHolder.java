@@ -11,8 +11,8 @@ package com.assigned.printart.Viewer;
 public class DisplayProductViewHolder extends RecyclerView.ViewHolder
 {
     public static ImageView imgv;
-    public static FloatingActionButton locl_buttons;
-    public static TextView Pname, POPrice, PSPrice, Pdes, Seller, number, remove;
+    public static ImageView locl_buttons;
+    public static TextView Pname, POPrice, PSPrice, Pdes, Seller, number, remove,discount;
 
     public DisplayProductViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -24,5 +24,6 @@ public class DisplayProductViewHolder extends RecyclerView.ViewHolder
         Pdes=itemView.findViewById(R.id.descriptioN);
         Seller=itemView.findViewById(R.id.seller);
         remove = itemView.findViewById(R.id.trash);
+        discount = itemView.findViewById(R.id.discount);
     }
 }

@@ -34,92 +34,82 @@ import com.squareup.picasso.Picasso;
 
 import io.paperdb.Paper;
 
-public class DisplayProductActivity extends AppCompatActivity
-{
+public class DisplayProductActivity extends AppCompatActivity {
     public RecyclerView recyclerViewdisplay;
     RecyclerView.LayoutManager layoutManager;
-  //  GridLayoutManager gridLayoutManager;
+    //  GridLayoutManager gridLayoutManager;
     private String TypeID;
     Query sorting;
     private String CategoryID;
 
-    private DatabaseReference DisplayReference,wishListReference;
+    private DatabaseReference DisplayReference, wishListReference;
     String str1;
-    FirebaseRecyclerAdapter<DisplayProducts, DisplayProductViewHolder>adapter2;
+    FirebaseRecyclerAdapter<DisplayProducts, DisplayProductViewHolder> adapter2;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_product);
-        str1=Paper.book().read(PaperStore.UserLoginID);
-        Toast.makeText(this, ""+str1, Toast.LENGTH_SHORT).show();
+        str1 = Paper.book().read(PaperStore.UserLoginID);
+        Toast.makeText(this, "" + str1, Toast.LENGTH_SHORT).show();
         Toolbar toolbar = findViewById(R.id.toolbarS);
-        toolbar.setTitle("PrintArt Sivakasi");
+        toolbar.setTitle("PrintArt");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        recyclerViewdisplay=(RecyclerView)findViewById(R.id.recyclerViewDisplay);
+        recyclerViewdisplay = (RecyclerView) findViewById(R.id.recyclerViewDisplay);
         recyclerViewdisplay.setHasFixedSize(false);
         //gridLayoutManager=new GridLayoutManager(getApplicationContext(),2);
         layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
-        CategoryID=getIntent().getStringExtra("Category");
-        TypeID=getIntent().getStringExtra("TypeID");
-        DisplayReference= FirebaseDatabase.getInstance().getReference().child("ShowingProducts").child(CategoryID);
-        wishListReference=FirebaseDatabase.getInstance().getReference().child("WishList").child(str1);
+        CategoryID = getIntent().getStringExtra("Category");
+        TypeID = getIntent().getStringExtra("TypeID");
+        DisplayReference = FirebaseDatabase.getInstance().getReference().child("ShowingProducts").child(CategoryID);
+        wishListReference = FirebaseDatabase.getInstance().getReference().child("WishList").child(str1);
         layoutManager = new LinearLayoutManager(this);
         recyclerViewdisplay.setLayoutManager(layoutManager);
-        Toast.makeText(this, ""+TypeID, Toast.LENGTH_SHORT).show();
-        if(TypeID.equals("01"))
-        {
-            sorting= DisplayReference.orderByChild("sort1");
-        }
-            else if(TypeID.equals("02"))
-        {
-            sorting= DisplayReference.orderByChild("sort2");
-        }
-        else if(TypeID.equals("03"))
-        {
-            sorting= DisplayReference.orderByChild("sort3");
+        Toast.makeText(this, "" + TypeID, Toast.LENGTH_SHORT).show();
+        if (TypeID.equals("01")) {
+            sorting = DisplayReference.orderByChild("sort1");
+        } else if (TypeID.equals("02")) {
+            sorting = DisplayReference.orderByChild("sort2");
+        } else if (TypeID.equals("03")) {
+            sorting = DisplayReference.orderByChild("sort3");
         }
     }
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
-        FirebaseRecyclerOptions<DisplayProducts> options=
+        FirebaseRecyclerOptions<DisplayProducts> options =
                 new FirebaseRecyclerOptions.Builder<DisplayProducts>().setQuery(sorting, DisplayProducts.class)
                         .build();
 
 
-        adapter2=new FirebaseRecyclerAdapter<DisplayProducts, DisplayProductViewHolder>(options)
-        {
+        adapter2 = new FirebaseRecyclerAdapter<DisplayProducts, DisplayProductViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull final DisplayProductViewHolder holder, int position, @NonNull final DisplayProducts model) {
                 holder.Pname.setText(model.getPame());
-                holder.PSPrice.setText("₹"+model.getPsp());
-                holder.POPrice.setText("₹"+model.getPpriceO()+" ");
+                holder.PSPrice.setText("₹" + model.getPsp());
+                holder.POPrice.setText("₹" + model.getPpriceO() + " ");
                 holder.Pdes.setText(model.getPdes());
                 holder.Seller.setText(model.getSeller());
                 holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText(""+(100-percent)+"%offer");
                 Picasso.get().load(model.getPro()).into(holder.imgv);
 
                 holder.locl_buttons.setOnClickListener(new View.OnClickListener() {
                     @Override
-                    public void onClick(View v)
-                    {
+                    public void onClick(View v) {
 
-                        if(!str1.equals("0000000000")) {
-
+                        if (!str1.equals("0000000000")) {
                             copyrecord(DisplayReference.child(model.getProID()), wishListReference.child(model.getProID()));
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(DisplayProductActivity.this, "Cannot Add", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent( DisplayProductActivity.this, MainActivity.class);
+                            Intent intent = new Intent(DisplayProductActivity.this, MainActivity.class);
                             startActivity(intent);
                         }
-
                     }
                 });
 
@@ -128,9 +118,9 @@ public class DisplayProductActivity extends AppCompatActivity
                     public void onClick(View v) {
 
                         Intent intent = new Intent(DisplayProductActivity.this, ShowDetailsActivity.class);
-                       intent.putExtra("Display", model.getProID());
+                        intent.putExtra("Display", model.getProID());
                         intent.putExtra("Category", CategoryID);
-                        intent.putExtra("Time","First");
+                        intent.putExtra("Time", "First");
 
                         Log.e("ISARE", model.getProID());
                         Log.e("ISARE+", CategoryID);
@@ -138,11 +128,12 @@ public class DisplayProductActivity extends AppCompatActivity
                     }
                 });
             }
+
             @NonNull
             @Override
             public DisplayProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproductactivitydesign,parent,false);
-                DisplayProductViewHolder holder= new DisplayProductViewHolder(view);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproductactivitydesign, parent, false);
+                DisplayProductViewHolder holder = new DisplayProductViewHolder(view);
 
                 return holder;
             }
@@ -156,10 +147,9 @@ public class DisplayProductActivity extends AppCompatActivity
 
     private void copyrecord(DatabaseReference displayReference, final DatabaseReference wishListReference) {
 
-        displayReference.addListenerForSingleValueEvent(new ValueEventListener()  {
+        displayReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot)
-            {
+            public void onDataChange(DataSnapshot dataSnapshot) {
                 wishListReference.setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
@@ -167,8 +157,10 @@ public class DisplayProductActivity extends AppCompatActivity
                     }
                 });
             }
+
             @Override
-            public void onCancelled(DatabaseError databaseError) {}
+            public void onCancelled(DatabaseError databaseError) {
+            }
         });
     }
 

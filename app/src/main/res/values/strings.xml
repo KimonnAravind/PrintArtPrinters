@@ -30,6 +30,7 @@
     <string name="add_to_cart">Add to cart</string>
     <string name="we_will_update_every_step_of_your_order">We will update every step of your order! \n Thank You</string>
 
+
     <string-array name="numis">
         <item>"1"</item>
         <item>"2"</item>
