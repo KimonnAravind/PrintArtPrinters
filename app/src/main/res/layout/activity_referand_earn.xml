@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/flp"
+    android:background="#F0DFD0"
     tools:context=".ReferandEarnActivity">
 
     <LinearLayout
@@ -33,6 +33,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                >
 
             <ImageView
                 android:id="@+id/dpicture"
@@ -40,32 +45,32 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:adjustViewBounds="true"
-                android:src="@drawable/redimage" />
+                android:src="@drawable/referafriend" />
+                <TextView
+                    android:id="@+id/referfrnds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:text="Click below to share your Referal code!"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/referfrnds"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@id/dpicture"
-                android:text="Click below to share your Referal code!"
-                android:textColor="@android:color/black"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/rcs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/wanderleft"
+                    android:text="ARA87103"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
 
-            <TextView
-                android:id="@+id/rcs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/referfrnds"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/wanderleft"
-                android:text="ARA87103"
-                android:textColor="@android:color/white"
-                android:textSize="40dp"
-                android:textStyle="bold"
-
+                    />
                 />
+            </FrameLayout>
+
         </RelativeLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
