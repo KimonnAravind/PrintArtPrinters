@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +25,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.assigned.printart.Paper.PaperStore;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -41,8 +43,9 @@ import io.paperdb.Paper;
 public class MyAccountActivity extends AppCompatActivity {
 
     CircleImageView DP;
-    TextView  uName,pNumber, Rcode, Cpoints, orders, address, logout, wishlist;
+    TextView uName, pNumber, Rcode, Cpoints, orders, address, logout, wishlist;
     String AccountN, numberis;
+    LinearLayout ref;
     private Uri imageUri;
     String Rc;
     String pn;
@@ -70,6 +73,7 @@ public class MyAccountActivity extends AppCompatActivity {
         address = (TextView) findViewById(R.id.address);
         wishlist = (TextView) findViewById(R.id.wlist);
         logout = (TextView) findViewById(R.id.logoout);
+        ref = (LinearLayout) findViewById(R.id.ref);
 
         try {
             settingReference.child("EndUsers").child(AccountN).
@@ -92,15 +96,14 @@ public class MyAccountActivity extends AppCompatActivity {
                         }
                     });
 
-        }
-        catch (NullPointerException e)
-        {
+        } catch (NullPointerException e) {
             Intent intent = new Intent(MyAccountActivity.this, HomeActivity.class);
             finish();
             startActivity(intent);
         }
 
-        }
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -108,16 +111,25 @@ public class MyAccountActivity extends AppCompatActivity {
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            Intent intent = new Intent(MyAccountActivity.this, AddressUpdateActivity.class);
-            intent.putExtra("Number",numberis);
-            startActivity(intent);
+                Intent intent = new Intent(MyAccountActivity.this, AddressUpdateActivity.class);
+                intent.putExtra("Number", numberis);
+                startActivity(intent);
             }
         });
 
+        ref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Snackbar.make(v, "Ready to Share!", Snackbar.LENGTH_LONG)
+                        .setAction("", null).show();
+                Toast.makeText(MyAccountActivity.this, "Ready to Share!", Toast.LENGTH_SHORT).show();
+                createlink();
+            }
+        });
         refs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(MyAccountActivity.this, "TT", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MyAccountActivity.this, "Ready to Share!", Toast.LENGTH_SHORT).show();
                 createlink();
             }
         });
@@ -125,7 +137,7 @@ public class MyAccountActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyAccountActivity.this, TestActivity.class);
-                intent.putExtra("Contact",numberis);
+                intent.putExtra("Contact", numberis);
                 startActivity(intent);
             }
         });
@@ -209,7 +221,7 @@ public class MyAccountActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_SS) {
             Intent intent = new Intent(MyAccountActivity.this, CartActivity.class);
-            intent.putExtra("us",numberis);
+            intent.putExtra("us", numberis);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);

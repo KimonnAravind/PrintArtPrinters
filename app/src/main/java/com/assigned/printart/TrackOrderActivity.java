@@ -19,7 +19,6 @@ public class TrackOrderActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         status = getIntent().getStringExtra("Status");
     }
-
     @Override
     public boolean onSupportNavigateUp() {
         finish();
