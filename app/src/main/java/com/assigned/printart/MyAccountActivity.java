@@ -45,7 +45,7 @@ public class MyAccountActivity extends AppCompatActivity {
     CircleImageView DP;
     TextView uName, pNumber, Rcode, Cpoints, orders, address, logout, wishlist;
     String AccountN, numberis;
-    LinearLayout ref;
+    LinearLayout ref,addresslin,vmyaddress,wlistlin;
     private Uri imageUri;
     String Rc;
     String pn;
@@ -74,7 +74,9 @@ public class MyAccountActivity extends AppCompatActivity {
         wishlist = (TextView) findViewById(R.id.wlist);
         logout = (TextView) findViewById(R.id.logoout);
         ref = (LinearLayout) findViewById(R.id.ref);
-
+        addresslin=(LinearLayout) findViewById(R.id.addresslin);
+        vmyaddress = (LinearLayout) findViewById(R.id.vmyaddress);
+        wlistlin=(LinearLayout)findViewById(R.id.wlistlin);
         try {
             settingReference.child("EndUsers").child(AccountN).
                     addValueEventListener(new ValueEventListener() {
@@ -117,6 +119,15 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
 
+        addresslin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyAccountActivity.this, AddressUpdateActivity.class);
+                intent.putExtra("Number", numberis);
+                startActivity(intent);
+            }
+        });
+
         ref.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -141,6 +152,14 @@ public class MyAccountActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        vmyaddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyAccountActivity.this, TestActivity.class);
+                intent.putExtra("Contact", numberis);
+                startActivity(intent);
+            }
+        });
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -153,6 +172,14 @@ public class MyAccountActivity extends AppCompatActivity {
             }
         });
         wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyAccountActivity.this, WListACtivity.class);
+                intent.putExtra("Contact", numberis);
+                startActivity(intent);
+            }
+        });
+        wlistlin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MyAccountActivity.this, WListACtivity.class);
