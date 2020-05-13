@@ -45,7 +45,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="+917904168617"
+                android:text="PhoneNumber"
                 android:textAlignment="center" />
 
             <ImageView
@@ -67,7 +67,7 @@
                 android:layout_below="@+id/one"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="25dp"
-                android:text="aravindselvam03@gmail.com"
+                android:text="EmailID"
                 android:textAlignment="center" />
 
             <ImageView
