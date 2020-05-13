@@ -1,6 +1,7 @@
 package com.assigned.printart;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,10 +68,18 @@ public class WListACtivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull DisplayProductViewHolder holder, int position, @NonNull final DisplayProducts model) {
 
-                Picasso.get().load(model.getPro()).into(holder.imgv);
                 holder.Pname.setText(model.getPame());
+                holder.PSPrice.setText("₹" + model.getPsp());
+                holder.POPrice.setText("₹" + model.getPpriceO() + " ");
                 holder.Pdes.setText(model.getPdes());
-                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                holder.Seller.setText(" "+model.getSeller()+" ");
+                holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                holder.b1.setText(" "+model.getType()+" ");
+                holder.b2.setText(" "+model.getType1()+" ");
+                holder.b3.setText(" "+model.getType2()+" ");
+                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText(""+(100-percent)+"%offer");
+                Picasso.get().load(model.getPro()).into(holder.imgv);  holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(WListACtivity.this, ShowDetailsActivity.class);
