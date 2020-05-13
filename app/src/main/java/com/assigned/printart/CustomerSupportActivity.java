@@ -63,7 +63,7 @@ public class CustomerSupportActivity extends AppCompatActivity {
                 installed = isPackinstalled(getPackageManager());
                 if (installed) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + one.getText().toString() + "&text=" + "Kimonn"));
+                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + one.getText().toString() + "&text=" + "PrintArt: "));
                     startActivity(intent);
                 } else {
                     Toast.makeText(CustomerSupportActivity.this, "You don't have whatsapp in your device! Please install whatsapp and try again!", Toast.LENGTH_SHORT).show();

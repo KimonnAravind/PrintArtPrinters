@@ -57,7 +57,7 @@ public class TestActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull TeseViewHolder holder, int position, @NonNull final Test model) {
                 holder.testtexview.setText("Placed on: " + model.getKeyValue());
-                holder.deliverydate.setText("Expected to deliver before: " + model.getDeliveryDate());
+                holder.deliverydate.setText("Delivery on or before: " + model.getDeliveryDate());
                 holder.cost.setText("Amount Paid: " + model.getOriginal() + "₹");
                 holder.credit.setText("Credits Used: " + model.getCredit());
                 holder.itemView.setOnClickListener(new View.OnClickListener() {

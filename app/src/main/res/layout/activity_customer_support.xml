@@ -30,9 +30,10 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
             android:layout_margin="25dp"
-            android:src="@drawable/custs" />
+            android:src="@drawable/customercare" />
 
         <RelativeLayout
             android:layout_width="match_parent"
