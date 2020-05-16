@@ -325,6 +325,7 @@ public class PaymentActivity extends AppCompatActivity {
                             Intent intent = new Intent(PaymentActivity.this, GreetingsActivity.class);
                             intent.putExtra("Savings", "" + Savings);
                             intent.putExtra("Sends", "" + n);
+                            intent.putExtra("date",""+Delivery_Date);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
