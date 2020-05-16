@@ -211,8 +211,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/threes"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginTop="5dp"
-                    android:text="Total Price: " />
+                    android:text="Total Price" />
 
 
                 <TextView
@@ -227,31 +228,33 @@
                 <TextView
                     android:id="@+id/emss"
                     android:layout_width="match_parent"
+                    android:layout_marginLeft="4dp"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/ems"
-                    android:text="Selling Price: " />
+                    android:layout_below="@+id/emsss"
+                    android:text="Final price of the products" />
 
                 <TextView
                     android:id="@+id/sellingpricesis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/ems"
+                    android:layout_below="@id/emsss"
                     android:layout_alignParentEnd="true"
                     android:layout_marginRight="8dp"
                     android:text="Sample" />
 
                 <TextView
                     android:id="@+id/emsss"
+                    android:layout_marginLeft="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/emss"
-                    android:text="Your savings with this order is: " />
+                    android:layout_below="@+id/ems"
+                    android:text="Your savings with this order" />
 
                 <TextView
                     android:id="@+id/totalis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/emss"
+                    android:layout_below="@id/ems"
                     android:layout_alignParentEnd="true"
                     android:layout_marginRight="8dp"
                     android:text="Sample" />
@@ -261,14 +264,15 @@
                     android:id="@+id/emsss1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/emsss"
-                    android:text="Shipping Charges: " />
+                    android:layout_below="@+id/emss"
+                    android:layout_marginLeft="4dp"
+                    android:text="Packing+Shipping charges" />
 
                 <TextView
                     android:id="@+id/shippingchargesis"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/emsss"
+                    android:layout_below="@id/emss"
                     android:layout_alignParentEnd="true"
                     android:layout_marginRight="8dp"
                     android:text="Sample" />

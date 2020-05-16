@@ -27,6 +27,13 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
         </com.google.android.material.appbar.AppBarLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/successfullyplace"
+            android:adjustViewBounds="true"
+            />
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -36,7 +43,6 @@
                 android:id="@+id/one"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="100dp"
                 android:text="Congratulations!"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_red_dark"
@@ -58,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/one"
                 android:layout_marginTop="20dp"
-                android:text="your order has been placed"
+                android:text="your order has been placed successfully"
                 android:textAlignment="center"
                 android:textColor="@android:color/holo_blue_dark"
                 android:textSize="25dp"

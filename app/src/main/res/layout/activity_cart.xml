@@ -73,11 +73,11 @@
                                 android:id="@+id/deliveryB"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:backgroundTint="@color/flp"
                                 android:hint="Add delivery address:"
                                 android:inputType="textImeMultiLine"
                                 android:orientation="vertical"
                                 android:textAlignment="center"
-                                android:backgroundTint="@color/flp"
                                 android:textSize="15dp"
                                 android:visibility="invisible" />
 
@@ -168,6 +168,30 @@
                                 android:text="Original Price" />
                         </RelativeLayout>
 
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginRight="3dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:layout_alignParentLeft="true"
+                                android:text="Your savings with this order" />
+
+                            <TextView
+                                android:id="@+id/discount"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:text="Discount" />
+                        </RelativeLayout>
+
+
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -187,27 +211,6 @@
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
                                 android:text="Selling Price" />
-                        </RelativeLayout>
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="3dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginRight="3dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentLeft="true"
-                                android:text="Discount" />
-
-                            <TextView
-                                android:id="@+id/discount"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:text="Discount" />
                         </RelativeLayout>
 
                         <RelativeLayout
@@ -244,14 +247,18 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentLeft="true"
-                                android:text="Total Amount" />
+                                android:text="Total Amount"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black" />
 
                             <TextView
                                 android:id="@+id/totalamount"
+                                android:textStyle="bold"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_alignParentRight="true"
-                                android:text="Total Amount" />
+                                android:text="Total Amount"
+                                android:textColor="@android:color/black" />
                         </RelativeLayout>
                     </LinearLayout>
                 </FrameLayout>

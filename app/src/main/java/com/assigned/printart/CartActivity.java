@@ -146,7 +146,7 @@ public class CartActivity extends AppCompatActivity {
                     totalo = dataSnapshot.child("Totalo").getValue().toString();
                     SellingPrice.setText("" + dataSnapshot.child("Total").getValue().toString());
                     pay = Integer.valueOf(dataSnapshot.child("Total").getValue().toString());
-                    TotalAmount.setText("" + pay);
+                    TotalAmount.setText("" + pay+"₹");
                     total.setText("PROCEED TO PLACE AN ORDER: " + pay);
                     temp = Integer.valueOf(dataSnapshot.child("Totalo").getValue().toString()) - Integer.valueOf(dataSnapshot.child("Total").getValue().toString());
                     Discount.setText("" + temp);
@@ -312,7 +312,7 @@ public class CartActivity extends AppCompatActivity {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cartlistdesign, parent, false);
                 //recyclerView.smoothScrollToPosition(5);
                 CartViewHolder holder = new CartViewHolder(view);
-                return holder ;
+                return holder;
             }
 
         };
@@ -351,6 +351,7 @@ public class CartActivity extends AppCompatActivity {
                     pinc.setVisibility(View.VISIBLE);
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -397,7 +398,7 @@ public class CartActivity extends AppCompatActivity {
                 if (pins.equals("xxxxxx")) {
                     Toast.makeText(CartActivity.this, "Please update your delivery address details!", Toast.LENGTH_SHORT).show();
                     changeAdd.callOnClick();
-                  //  pins = "0";
+                    //  pins = "0";
                 } else {
                     databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -426,7 +427,7 @@ public class CartActivity extends AppCompatActivity {
                 if (pins.equals("xxxxxx")) {
                     Toast.makeText(CartActivity.this, "Please update your delivery address details!", Toast.LENGTH_SHORT).show();
                     changeAdd.callOnClick();
-             //       pins = "0";
+                    //       pins = "0";
                 } else {
                     databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
@@ -472,8 +473,7 @@ public class CartActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp()
-    {
+    public boolean onSupportNavigateUp() {
         Intent intent = new Intent(CartActivity.this, HomeActivity.class);
         finish();
         if (checkBox.isChecked()) {

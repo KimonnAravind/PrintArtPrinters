@@ -85,6 +85,9 @@ public class PaymentActivity extends AppCompatActivity {
         credit = getIntent().getStringExtra("Credit");
         users = getIntent().getStringExtra("us");
         Savings = getIntent().getStringExtra("Savings");
+     //   Toast.makeText(this, ""+Savings, Toast.LENGTH_SHORT).show();
+
+
         sends = getIntent().getStringExtra("Sends");
         n = Integer.valueOf(sends);
         m = Integer.valueOf(getIntent().getStringExtra("Cost"));
@@ -107,12 +110,12 @@ public class PaymentActivity extends AppCompatActivity {
         y = (TextView) findViewById(R.id.totalis);
         z = (TextView) findViewById(R.id.shippingchargesis);
         v = (TextView) findViewById(R.id.totalmoneyis);
-        z.setText("65₹");
-        w.setText("" + Totalo + "₹");
+        z.setText("65");
+        w.setText("" + Totalo);
         w.setPaintFlags(w.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
         int is = n + k;
-        y.setText("" + is);
-        x.setText("" + k);
+        y.setText("" + Savings);
+        x.setText("" + m);
         is = m + 65;
         v.setText("" + is + "₹");
         paste = String.valueOf(is);

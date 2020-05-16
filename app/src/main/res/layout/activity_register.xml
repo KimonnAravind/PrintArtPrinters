@@ -75,6 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="5dp"
+            android:textColor="@android:color/white"
             android:background="@drawable/inputdesignsolid"
             android:enabled="false"
             android:text="Register"
