@@ -64,6 +64,8 @@ public class CartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
+
+
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         layoutManager = new LinearLayoutManager(this, RecyclerView.VERTICAL, false);
@@ -146,7 +148,7 @@ public class CartActivity extends AppCompatActivity {
                     totalo = dataSnapshot.child("Totalo").getValue().toString();
                     SellingPrice.setText("" + dataSnapshot.child("Total").getValue().toString());
                     pay = Integer.valueOf(dataSnapshot.child("Total").getValue().toString());
-                    TotalAmount.setText("" + pay+"₹");
+                    TotalAmount.setText("" + pay + "₹");
                     total.setText("PROCEED TO PLACE AN ORDER: " + pay);
                     temp = Integer.valueOf(dataSnapshot.child("Totalo").getValue().toString()) - Integer.valueOf(dataSnapshot.child("Total").getValue().toString());
                     Discount.setText("" + temp);
