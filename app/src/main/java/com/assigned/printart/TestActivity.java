@@ -58,8 +58,8 @@ public class TestActivity extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Test, TeseViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull TeseViewHolder holder, int position, @NonNull final Test model) {
-                holder.testtexview.setText("Placed on: " + model.getKeyValue());
-                holder.deliverydate.setText("Delivery on or before: " + model.getDeliveryDate());
+                holder.testtexview.setText("Order ID: " + model.getKeyValue());
+                holder.deliverydate.setText("Expected delivery date:\n" + model.getDeliveryDate());
                 holder.cost.setText("Amount Paid: " + model.getOriginal() + "₹");
                 holder.credit.setText("Credits Used: " + model.getCredit());
                 String Stat = model.getOrderstatus();
