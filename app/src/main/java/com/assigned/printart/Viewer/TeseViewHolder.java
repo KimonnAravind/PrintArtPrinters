@@ -1,6 +1,7 @@
 package com.assigned.printart.Viewer;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -10,7 +11,7 @@ import com.assigned.printart.R;
 
 public class TeseViewHolder extends RecyclerView.ViewHolder {
     public static TextView testtexview, deliverydate, cost, credit;
-
+    public static ImageView statuspic;
     public TeseViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -18,5 +19,6 @@ public class TeseViewHolder extends RecyclerView.ViewHolder {
         deliverydate = itemView.findViewById(R.id.testDeliverydate);
         cost = itemView.findViewById(R.id.testCost);
         credit = itemView.findViewById(R.id.testCredit);
+        statuspic = itemView.findViewById(R.id.statuspic);
     }
 }

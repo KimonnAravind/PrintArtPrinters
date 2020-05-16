@@ -1,11 +1,13 @@
 package com.assigned.printart;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,6 +62,26 @@ public class TestActivity extends AppCompatActivity {
                 holder.deliverydate.setText("Delivery on or before: " + model.getDeliveryDate());
                 holder.cost.setText("Amount Paid: " + model.getOriginal() + "₹");
                 holder.credit.setText("Credits Used: " + model.getCredit());
+                String Stat = model.getOrderstatus();
+                switch (Stat) {
+                    case "Approved": {
+                        holder.statuspic.setImageResource(R.drawable.statusb);
+                        break;
+                    }
+                    case "Packed": {
+                        holder.statuspic.setImageResource(R.drawable.statusc);
+                        break;
+                    }
+                    case "Dispatched": {
+                        holder.statuspic.setImageResource(R.drawable.statusd);
+                        break;
+                    }
+                    case "Delivered": {
+                        holder.statuspic.setImageResource(R.drawable.statusz);
+                        break;
+                    }
+
+                }
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -71,12 +93,12 @@ public class TestActivity extends AppCompatActivity {
                     }
                 });
             }
+
             @NonNull
             @Override
             public TeseViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.testingviewholder, parent, false);
                 TeseViewHolder holder = new TeseViewHolder(view);
-
                 return holder;
             }
         };

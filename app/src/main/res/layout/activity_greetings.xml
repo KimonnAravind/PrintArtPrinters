@@ -98,14 +98,11 @@
             android:adjustViewBounds="true"
             />
 
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/statusa" />
-
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
