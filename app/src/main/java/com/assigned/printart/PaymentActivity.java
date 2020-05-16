@@ -85,7 +85,7 @@ public class PaymentActivity extends AppCompatActivity {
         credit = getIntent().getStringExtra("Credit");
         users = getIntent().getStringExtra("us");
         Savings = getIntent().getStringExtra("Savings");
-     //   Toast.makeText(this, ""+Savings, Toast.LENGTH_SHORT).show();
+        //   Toast.makeText(this, ""+Savings, Toast.LENGTH_SHORT).show();
 
 
         sends = getIntent().getStringExtra("Sends");
@@ -325,11 +325,12 @@ public class PaymentActivity extends AppCompatActivity {
                             Intent intent = new Intent(PaymentActivity.this, GreetingsActivity.class);
                             intent.putExtra("Savings", "" + Savings);
                             intent.putExtra("Sends", "" + n);
-                            intent.putExtra("date",""+Delivery_Date);
+                            intent.putExtra("date", "" + Delivery_Date);
                             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                             startActivity(intent);
                         }
                     }
+
                     private void placing() {
                         placeorderReference.child(productrandomkey).child("DeliveryDate").setValue("" + Delivery_Date);
                         placeorderReference.child(productrandomkey).child("Original").setValue("" + paste);
@@ -338,7 +339,7 @@ public class PaymentActivity extends AppCompatActivity {
                         placeorderReference.child(productrandomkey).child("Total").setValue("" + one);
                         placeorderReference.child(productrandomkey).child("KeyValue").setValue("" + productrandomkey);
                         placeorderReference.child(productrandomkey).child("orderstatus").setValue("Placed Successfully");
-                        placeorderReference.child(productrandomkey).child("Phone").setValue(""+users);
+                        placeorderReference.child(productrandomkey).child("Phone").setValue("" + users);
                         cartReference.child("Total").setValue("0");
                         cartReference.child("Totalo").setValue("0");
                         cartReference.child("01").removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -351,23 +352,23 @@ public class PaymentActivity extends AppCompatActivity {
                             }
 
                             private void adminaccess(DatabaseReference child, final DatabaseReference adminRef) {
-                            child.addListenerForSingleValueEvent(new ValueEventListener() {
-                                @Override
-                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                    adminRef.child(productrandomkey
-                                    ).setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(PaymentActivity.this, "We are Started working on it!", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-                                }
+                                child.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        adminRef.child(productrandomkey
+                                        ).setValue(dataSnapshot.getValue()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                Toast.makeText(PaymentActivity.this, "We are Started working on it!", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
+                                    }
 
-                                @Override
-                                public void onCancelled(@NonNull DatabaseError databaseError) {
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                                }
-                            });
+                                    }
+                                });
                             }
                         });
                     }
