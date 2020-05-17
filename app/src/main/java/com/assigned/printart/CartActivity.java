@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.assigned.printart.Model.DisplayProducts;
 import com.assigned.printart.Viewer.CartViewHolder;
+import com.assigned.printart.Viewer.DisplayProductViewHolder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,6 +46,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView deliveryAdd;
     Button changeAdd, updateadd;
     private EditText deliveryless, pinc;
+
     int couty = 0;
     int temp, pay, as;
     String totalo;
@@ -54,6 +56,7 @@ public class CartActivity extends AppCompatActivity {
     Button nxt;
     String AddressPassing;
     DatabaseReference pricereference;
+
     int xx = 0, yy = 0;
     String ss;
     TextView TotalAmount, Discount, SellingPrice, OriginalPriceIS, Apoints;
@@ -103,12 +106,18 @@ public class CartActivity extends AppCompatActivity {
                 .child(users);
         pricereference = FirebaseDatabase.getInstance().getReference();
 
+
+
     }
 
     @Override
     protected void onStart() {
         super.onStart();
+        onstartcall();
+    }
 
+    private void onstartcall()
+    {
         databaseReference.child("01").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -251,10 +260,10 @@ public class CartActivity extends AppCompatActivity {
                         startActivity(intent);
                     }
                 });
+
                 holder.trash.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
                         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -279,6 +288,11 @@ public class CartActivity extends AppCompatActivity {
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     if (task.isSuccessful()) {
                                                         Toast.makeText(CartActivity.this, "Removed", Toast.LENGTH_SHORT).show();
+                                                       /* Intent intent = getIntent();
+                                                        intent.putExtra(users,"us");
+                                                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                                                        startActivity(intent);*/
+                                                       onstartcall();
                                                     }
                                                 }
                                             }
@@ -297,6 +311,10 @@ public class CartActivity extends AppCompatActivity {
                 });
             }
 
+            @Override
+            public int getItemCount() {
+                return super.getItemCount();
+            }
 
             @Override
             public long getItemId(int position) {
@@ -472,6 +490,18 @@ public class CartActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Toast.makeText(this, "close", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(CartActivity.this, HomeActivity.class);
+        finish();
+        if (checkBox.isChecked()) {
+            checkBox.toggle();
+        }
+        startActivity(intent);
+
     }
 
     @Override
