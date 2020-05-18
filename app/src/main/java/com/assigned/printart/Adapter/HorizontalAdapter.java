@@ -26,6 +26,7 @@ public class HorizontalAdapter extends FirebaseRecyclerAdapter<HorizontalScrolle
      *
      * @param options
      */
+
     public HorizontalAdapter(@NonNull FirebaseRecyclerOptions<HorizontalScroller> options) {
         super(options);
     }

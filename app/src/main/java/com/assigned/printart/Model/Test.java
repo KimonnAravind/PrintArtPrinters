@@ -5,14 +5,17 @@ public class Test {
 
     }
 
-    private String Credit, KeyValue, DeliveryDate, Original, orderstatus;
+    private String Credit, KeyValue, DeliveryDate, Original, orderstatus,NOP,ThumN,nameop;
 
-    public Test(String credit, String keyValue, String deliveryDate, String original, String orderstatus) {
+    public Test(String credit, String keyValue, String deliveryDate, String original, String orderstatus, String NOP, String thumN, String nameop) {
         Credit = credit;
         KeyValue = keyValue;
         DeliveryDate = deliveryDate;
         Original = original;
         this.orderstatus = orderstatus;
+        this.NOP = NOP;
+        ThumN = thumN;
+        this.nameop = nameop;
     }
 
     public String getCredit() {
@@ -53,5 +56,29 @@ public class Test {
 
     public void setOrderstatus(String orderstatus) {
         this.orderstatus = orderstatus;
+    }
+
+    public String getNOP() {
+        return NOP;
+    }
+
+    public void setNOP(String NOP) {
+        this.NOP = NOP;
+    }
+
+    public String getThumN() {
+        return ThumN;
+    }
+
+    public void setThumN(String thumN) {
+        ThumN = thumN;
+    }
+
+    public String getNameop() {
+        return nameop;
+    }
+
+    public void setNameop(String nameop) {
+        this.nameop = nameop;
     }
 }

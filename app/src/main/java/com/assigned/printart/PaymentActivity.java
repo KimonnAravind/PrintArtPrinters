@@ -43,6 +43,7 @@ public class PaymentActivity extends AppCompatActivity {
     DatabaseReference creditreduce;
     TextView w, x, y, z, v;
     TextView onel;
+    String thum, numop, nameop;
     String Savings, sends;
     String paste;
     private String savecurrentdate, savecurrenttime, productrandomkey;
@@ -86,8 +87,9 @@ public class PaymentActivity extends AppCompatActivity {
         users = getIntent().getStringExtra("us");
         Savings = getIntent().getStringExtra("Savings");
         //   Toast.makeText(this, ""+Savings, Toast.LENGTH_SHORT).show();
-
-
+        thum = getIntent().getStringExtra("thum");
+        numop = getIntent().getStringExtra("numop");
+        nameop= getIntent().getStringExtra("nameop");
         sends = getIntent().getStringExtra("Sends");
         n = Integer.valueOf(sends);
         m = Integer.valueOf(getIntent().getStringExtra("Cost"));
@@ -332,6 +334,9 @@ public class PaymentActivity extends AppCompatActivity {
                     }
 
                     private void placing() {
+                        placeorderReference.child(productrandomkey).child("NOP").setValue("" + numop);
+                        placeorderReference.child(productrandomkey).child("ThumN").setValue("" + thum);
+                        placeorderReference.child(productrandomkey).child("nameop").setValue(nameop);
                         placeorderReference.child(productrandomkey).child("DeliveryDate").setValue("" + Delivery_Date);
                         placeorderReference.child(productrandomkey).child("Original").setValue("" + paste);
                         placeorderReference.child(productrandomkey).child("Address").setValue(DAddress);

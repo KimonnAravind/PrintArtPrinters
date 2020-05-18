@@ -46,7 +46,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView deliveryAdd;
     Button changeAdd, updateadd;
     private EditText deliveryless, pinc;
-
+    String thum,numop,nameop;
     int couty = 0;
     int temp, pay, as;
     String totalo;
@@ -179,7 +179,6 @@ public class CartActivity extends AppCompatActivity {
                         credit = credit - ten;
                         ten = credit + ten;
                         credit = ten - credit;
-
                         sends = credit;
                         temp = temp + credit;
                         pay = pay - credit;
@@ -236,8 +235,10 @@ public class CartActivity extends AppCompatActivity {
             @Override
             protected void onBindViewHolder(@NonNull final CartViewHolder holder, final int position, @NonNull final DisplayProducts model) {
                 Picasso.get().load(model.getPro()).into(holder.imgvs);
+                thum = model.getPro().toString();
                 holder.d.setText(model.getPdes());
                 holder.t.setText(model.getPame());
+                nameop = model.getPame();
                 holder.o.setText("₹" + model.getPpriceO() + " ");
                 holder.o.setPaintFlags(holder.o.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                 holder.s.setText("₹" + model.getPsp());
@@ -313,6 +314,7 @@ public class CartActivity extends AppCompatActivity {
 
             @Override
             public int getItemCount() {
+                numop =Integer.toString(super.getItemCount());
                 return super.getItemCount();
             }
 
@@ -480,6 +482,9 @@ public class CartActivity extends AppCompatActivity {
         intent.putExtra("Totalo", "" + totalo);
         intent.putExtra("Savings", "" + temp);
         intent.putExtra("Sends", "" + sends);
+        intent.putExtra("thum",""+thum);
+        intent.putExtra("numop",""+numop);
+        intent.putExtra("nameop",nameop);
         if (checkBox.isChecked()) {
             checkBox.toggle();
         }

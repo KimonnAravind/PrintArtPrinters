@@ -21,6 +21,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Picasso;
 
 public class TestActivity extends AppCompatActivity {
     RecyclerView recyclerView;
@@ -60,28 +61,11 @@ public class TestActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull TeseViewHolder holder, int position, @NonNull final Test model) {
                 holder.testtexview.setText("Order ID: " + model.getKeyValue());
                 holder.deliverydate.setText("Expected delivery date:\n" + model.getDeliveryDate());
-                holder.cost.setText("Amount Paid: " + model.getOriginal() + "₹");
+                holder.cost.setText(model.getNameop() + "+"+ model.getNOP());
                 holder.credit.setText("Credits Used: " + model.getCredit());
-                String Stat = model.getOrderstatus();
-                switch (Stat) {
-                    case "Approved": {
-                        holder.statuspic.setImageResource(R.drawable.statusb);
-                        break;
-                    }
-                    case "Packed": {
-                        holder.statuspic.setImageResource(R.drawable.statusc);
-                        break;
-                    }
-                    case "Dispatched": {
-                        holder.statuspic.setImageResource(R.drawable.statusd);
-                        break;
-                    }
-                    case "Delivered": {
-                        holder.statuspic.setImageResource(R.drawable.statusz);
-                        break;
-                    }
+                Picasso.get().load(model.getThumN()).into(holder.statuspic);
 
-                }
+
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
