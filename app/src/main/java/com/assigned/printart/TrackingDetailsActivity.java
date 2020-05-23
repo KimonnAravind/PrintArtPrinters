@@ -25,6 +25,7 @@ public class TrackingDetailsActivity extends AppCompatActivity {
         Status = getIntent().getStringExtra("Status");
 
 
+
     }
 
     @Override

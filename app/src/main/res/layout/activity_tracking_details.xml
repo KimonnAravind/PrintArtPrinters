@@ -41,8 +41,9 @@
 
                 <ImageView
                     android:id="@+id/fdot"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
 
@@ -51,8 +52,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="25dp"
-                    android:drawableEnd="@drawable/ic_call_received_black_24dp"
                     android:layout_toRightOf="@id/fdot"
+                    android:drawableEnd="@drawable/ic_call_received_black_24dp"
+                    android:translationZ="@dimen/activity_horizontal_margin"
                     android:text="We have Received Your Order"
                     android:textSize="18dp"
                     android:textStyle="bold" />
@@ -63,8 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@id/orderconfirmed"
                     android:layout_toRightOf="@id/fline"
-                    android:text="Ordered Date"
-                     />
+                    android:text="Ordered Date" />
 
                 <ImageView
                     android:id="@+id/fline"
@@ -72,12 +73,13 @@
                     android:layout_height="100dp"
                     android:layout_below="@id/fdot"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/lline" />
+                    android:background="@drawable/lline" />
 
                 <ImageView
                     android:id="@+id/sdot"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/fline"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
@@ -92,8 +94,9 @@
 
                 <ImageView
                     android:id="@+id/tdot"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/sline"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
@@ -108,8 +111,9 @@
 
                 <ImageView
                     android:id="@+id/frdot"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/tline"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
@@ -125,8 +129,9 @@
 
                 <ImageView
                     android:id="@+id/fvdot"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/frline"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
