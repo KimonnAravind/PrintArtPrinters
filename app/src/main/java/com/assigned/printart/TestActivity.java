@@ -30,6 +30,7 @@ public class TestActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Test, TeseViewHolder> adapter;
     String Contact;
 
+    private int[] textureArrayWin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,13 @@ public class TestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        textureArrayWin = new int[]{
+                R.drawable.sta1,
+                R.drawable.sta2,
+                R.drawable.sta3,
+                R.drawable.sta4,
+                R.drawable.sta5
+        };
     }
 
     @Override
@@ -61,9 +69,10 @@ public class TestActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull TeseViewHolder holder, int position, @NonNull final Test model) {
                 holder.testtexview.setText("Order ID: " + model.getKeyValue());
                 holder.deliverydate.setText("Expected delivery date:\n" + model.getDeliveryDate());
-                holder.cost.setText(model.getNameop() + "+"+ model.getNOP());
-                holder.credit.setText("Credits Used: " + model.getCredit());
+                holder.cost.setText(model.getNameop() + " + "+ model.getNOP()+" other products");
+                holder.credit.setText("Paid: ₹" + model.getOriginal());
                 Picasso.get().load(model.getThumN()).into(holder.statuspic);
+
 
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
