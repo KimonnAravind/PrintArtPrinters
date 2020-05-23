@@ -112,7 +112,7 @@ public class FullTestActivity extends AppCompatActivity {
             @NonNull
             @Override
             public MyordersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproductactivitydesign, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_orders_viewholder, parent, false);
                 MyordersViewHolder holder = new MyordersViewHolder(view);
 
                 return holder;

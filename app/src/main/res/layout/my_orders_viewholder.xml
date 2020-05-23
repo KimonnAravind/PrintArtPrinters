@@ -1,82 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="7dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="7dp"
+    app:cardCornerRadius="10dp">
+
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/inputdesign">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img"
-            android:layout_width="120dp"
-            android:layout_height="150dp"
-            android:layout_marginLeft="4dp" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cview"
+            android:layout_width="130dp"
+            android:layout_height="170dp"
+            android:backgroundTint="@android:color/white"
+            app:cardCornerRadius="10dp"
+            app:cardPreventCornerOverlap="true">
+
+            <RelativeLayout
+                android:id="@+id/relativelay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/images"
+                    android:layout_width="120dp"
+                    android:layout_height="150dp"
+                    android:layout_centerInParent="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:visibility="visible" />
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
 
         <TextView
-            android:id="@+id/cartname"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="2dp"
-            android:layout_toRightOf="@id/img"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/cview"
             android:text="Product Name"
             android:textColor="@android:color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/cartdescription"
+            android:id="@+id/descriptioN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cartname"
-            android:layout_marginLeft="15dp"
-
-            android:layout_toRightOf="@id/img"
-            android:text="ProductDescription"
-            android:textSize="17dp"
-            android:textStyle="italic" />
+            android:layout_below="@+id/name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/cview"
+            android:text="Product Description"
+            android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/cartquantity"
+            android:id="@+id/productofferPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cartdescription"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="8dp"
-            android:layout_toRightOf="@id/img"
-            android:text="Quantity"
-            android:textSize="17dp"
-            android:textStyle="italic" />
-
-
-        <TextView
-            android:id="@+id/cartprice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/cartquantity"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="4dp"
-            android:layout_toRightOf="@id/img"
-            android:text="Price"
+            android:layout_below="@id/descriptioN"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/cview"
+            android:text="Product SP"
             android:textColor="@android:color/black"
-            android:textSize="17dp"
-            android:textStyle="italic|bold" />
+            android:textSize="18dp"
+            android:textStyle="italic|bold"
+
+            />
 
         <TextView
-            android:id="@+id/sum"
+            android:id="@+id/productorigialPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cartprice"
+            android:layout_below="@id/descriptioN"
             android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/productofferPrice"
+            android:text="MC" />
 
-            android:layout_toRightOf="@id/img"
-            android:text="Total"
-            android:textColor="@android:color/black"
-            android:textSize="17dp"
-            android:textStyle="italic|bold" />
+        <TextView
+            android:id="@+id/discount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/descriptioN"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="3dp"
+            android:layout_toRightOf="@id/productorigialPrice"
+            android:text="off"
+            android:textColor="@android:color/holo_green_light"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/b1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productofferPrice"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/cview"
+            android:background="@drawable/blankpopups"
+            android:text="one" />
+
+        <TextView
+            android:id="@+id/b2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/productofferPrice"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_toRightOf="@id/b1"
+            android:background="@drawable/blankpopups"
+            android:text="two" />
+
+        <TextView
+            android:id="@+id/b3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/b1"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="7dp"
+            android:layout_toRightOf="@id/cview"
+            android:background="@drawable/blankpopups"
+            android:text="three" />
+
+        <TextView
+            android:id="@+id/seller"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="@bool/ph_enableToolbarShadow"
+            android:layout_marginRight="4dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/popups"
+            android:text="PrintArt"
+            android:textColor="@android:color/white"
+            android:textSize="15dp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
