@@ -1,5 +1,6 @@
 package com.assigned.printart;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -52,7 +53,7 @@ public class FullTestActivity extends AppCompatActivity {
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         Toolbar toolbar = findViewById(R.id.toolbarS);
-        toolbar.setTitle("My Orders");
+        toolbar.setTitle("Order Status");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -95,20 +96,23 @@ public class FullTestActivity extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<DisplayProducts, MyordersViewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull MyordersViewHolder holder, int position, @NonNull DisplayProducts model) {
-                String n = model.getPro();
-                Picasso.get().load(n).into(holder.imgis);
-                holder.name.setText(model.getPame());
-                holder.description.setText(model.getPdes());
-                holder.quantity.setText("QTY: " + model.getQuantity());
-                holder.price.setText("" + model.getPsp() + "₹");
-                int t = Integer.valueOf(model.getQuantity()) * Integer.valueOf(model.getPsp());
-                holder.total.setText("Paid: " + t + "₹");
-            }
+                holder.Pname.setText(model.getPame());
+                holder.PSPrice.setText("₹" + model.getPsp());
+                holder.POPrice.setText("₹" + model.getPpriceO() + " ");
+                holder.Pdes.setText(model.getPdes());
+                holder.Seller.setText(" "+model.getSeller()+" ");
+                holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+                holder.b1.setText(" "+model.getType()+" ");
+                holder.b2.setText(" "+model.getType1()+" ");
+                holder.b3.setText(" "+model.getType2()+" ");
+                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText(""+(100-percent)+"%offer");
+                Picasso.get().load(model.getPro()).into(holder.imgv);}
 
             @NonNull
             @Override
             public MyordersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_orders_viewholder, parent, false);
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.displayproductactivitydesign, parent, false);
                 MyordersViewHolder holder = new MyordersViewHolder(view);
 
                 return holder;

@@ -73,8 +73,8 @@ public class TestActivity extends AppCompatActivity {
                 holder.credit.setText("Paid: ₹" + model.getOriginal());
                 Picasso.get().load(model.getThumN()).into(holder.statuspic);
 
-                int temp =Integer.valueOf( model.getNOP());
-                temp = temp-1;
+                int temp = Integer.valueOf(model.getNOP());
+                temp = temp - 1;
 
                 if (model.getNOP().equals("1")) {
                     holder.cost.setText(model.getNameop());
