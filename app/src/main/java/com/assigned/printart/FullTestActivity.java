@@ -30,7 +30,7 @@ import com.squareup.picasso.Picasso;
 
 public class FullTestActivity extends AppCompatActivity {
     String keyV;
-    TextView currentStatus;
+    TextView currentStatus,placedDate, current;
     String Orders;
     ImageView ims;
     RecyclerView recyclerView;
@@ -52,6 +52,8 @@ public class FullTestActivity extends AppCompatActivity {
         DisplayReference = FirebaseDatabase.getInstance().getReference().child("PlacedOrders").child(Contact).child(keyV);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(false);
+        placedDate = (TextView)findViewById(R.id.placedDate);
+        current = (TextView) findViewById(R.id.current);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         Toolbar toolbar = findViewById(R.id.toolbarS);
@@ -76,21 +78,8 @@ public class FullTestActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if (Orders.equals("Approved")) {
-            ims.setImageResource(imageViewAr[0]);
-        }
-        if (Orders.equals("Packed")) {
-            ims.setImageResource(imageViewAr[1]);
-        }
-        if (Orders.equals("Dispatched")) {
-            ims.setImageResource(imageViewAr[2]);
 
-            showTrackingDetails();
 
-        }
-        if (Orders.equals("Delivered")) {
-            ims.setImageResource(imageViewAr[3]);
-        }
         FirebaseRecyclerOptions<DisplayProducts> options = new FirebaseRecyclerOptions.Builder<DisplayProducts>()
                 .setQuery(DisplayReference.child("01"), DisplayProducts.class)
                 .build();
@@ -102,26 +91,25 @@ public class FullTestActivity extends AppCompatActivity {
                 holder.PSPrice.setText("₹" + model.getPsp());
                 holder.POPrice.setText("₹" + model.getPpriceO() + " ");
                 holder.Pdes.setText(model.getPdes());
-                holder.Seller.setText(" "+model.getSeller()+" ");
+                holder.Seller.setText(" " + model.getSeller() + " ");
                 holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                holder.b1.setText(" "+model.getType()+" ");
-                holder.b2.setText(" "+model.getType1()+" ");
-                holder.b3.setText(" "+model.getType2()+" ");
-                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
-                holder.discount.setText(""+(100-percent)+"%offer");
+                holder.b1.setText(" " + model.getType() + " ");
+                holder.b2.setText(" " + model.getType1() + " ");
+                holder.b3.setText(" " + model.getType2() + " ");
+                int percent = Integer.valueOf(model.getPsp()) * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText("" + (100 - percent) + "%offer");
                 Picasso.get().load(model.getPro()).into(holder.imgv);
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(FullTestActivity.this, DisplayProductActivity.class);
-                        intent.putExtra("Category",model.getCategory());
+                        intent.putExtra("Category", model.getCategory());
                         intent.putExtra("TypeID", "01");
 
                         startActivity(intent);
                     }
                 });
             }
-
 
             @NonNull
             @Override
@@ -134,6 +122,8 @@ public class FullTestActivity extends AppCompatActivity {
         };
         recyclerView.setAdapter(adapter);
         adapter.startListening();
+
+        placedDate.setText("Ordered on: \n"+keyV);
     }
 
     private void showTrackingDetails() {
@@ -143,11 +133,10 @@ public class FullTestActivity extends AppCompatActivity {
         DisplayReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-           if(dataSnapshot.child("TLink").exists())
-           {
-               trackLink.setText(dataSnapshot.child("TLink").getValue().toString());
-               trackID.setText(dataSnapshot.child("TId").getValue().toString());
-           }
+                if (dataSnapshot.child("TLink").exists()) {
+                    trackLink.setText(dataSnapshot.child("TLink").getValue().toString());
+                    trackID.setText(dataSnapshot.child("TId").getValue().toString());
+                }
             }
 
             @Override
@@ -155,7 +144,6 @@ public class FullTestActivity extends AppCompatActivity {
 
             }
         });
-
 
 
     }
