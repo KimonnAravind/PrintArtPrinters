@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/white"
     tools:context=".TrackingDetailsActivity">
 
     <LinearLayout
@@ -26,6 +27,112 @@
                 app:layout_scrollFlags="scroll|enterAlways|snap"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
         </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:background="@android:color/white">
+
+                <ImageView
+                    android:id="@+id/fdot"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dot" />
+
+                <TextView
+                    android:id="@+id/orderconfirmed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/fdot"
+                    android:text="We have Received Your Order"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/orderedDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orderconfirmed"
+                    android:layout_toRightOf="@id/fline"
+                    android:text="Ordered Date"
+                     />
+
+                <ImageView
+                    android:id="@+id/fline"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/fdot"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/lline" />
+
+                <ImageView
+                    android:id="@+id/sdot"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/fline"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dot" />
+
+                <ImageView
+                    android:id="@+id/sline"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/sdot"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/lline" />
+
+                <ImageView
+                    android:id="@+id/tdot"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/sline"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dot" />
+
+                <ImageView
+                    android:id="@+id/tline"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/tdot"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/lline" />
+
+                <ImageView
+                    android:id="@+id/frdot"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/tline"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dot" />
+
+                <ImageView
+                    android:id="@+id/frline"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_below="@id/frdot"
+
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/lline" />
+
+                <ImageView
+                    android:id="@+id/fvdot"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_below="@+id/frline"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/dot" />
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
