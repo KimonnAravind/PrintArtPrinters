@@ -31,6 +31,7 @@ public class TestActivity extends AppCompatActivity {
     String Contact;
 
     private int[] textureArrayWin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,28 +69,34 @@ public class TestActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull TeseViewHolder holder, int position, @NonNull final Test model) {
                 holder.testtexview.setText("Order ID: " + model.getKeyValue());
                 holder.deliverydate.setText("Expected delivery date:\n" + model.getDeliveryDate());
-                holder.cost.setText(model.getNameop() + " + "+ model.getNOP()+" other products");
+
                 holder.credit.setText("Paid: ₹" + model.getOriginal());
                 Picasso.get().load(model.getThumN()).into(holder.statuspic);
-                switch (model.getOrderstatus())
-                {
-                    case "Approved":
-                    {
+
+                int temp =Integer.valueOf( model.getNOP());
+                temp = temp-1;
+
+                if (model.getNOP().equals("1")) {
+                    holder.cost.setText(model.getNameop());
+                } else if (model.getNOP().equals("2")) {
+                    holder.cost.setText(model.getNameop() + " + 1 other product");
+                } else {
+                    holder.cost.setText(model.getNameop() + " + " + temp + " other products");
+                }
+                switch (model.getOrderstatus()) {
+                    case "Approved": {
                         holder.orderstatusbar.setImageResource(textureArrayWin[0]);
                         break;
                     }
-                    case "Packed":
-                    {
+                    case "Packed": {
                         holder.orderstatusbar.setImageResource(textureArrayWin[1]);
                         break;
                     }
-                    case "Dispatched":
-                    {
+                    case "Dispatched": {
                         holder.orderstatusbar.setImageResource(textureArrayWin[2]);
                         break;
                     }
-                    case "Delivered":
-                    {
+                    case "Delivered": {
                         holder.orderstatusbar.setImageResource(textureArrayWin[3]);
                         break;
                     }
