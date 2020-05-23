@@ -73,7 +73,6 @@
                 android:layout_above="@id/tracklink"
                 android:layout_marginBottom="5dp"
                 android:layout_toRightOf="@id/ims"
-
                 android:text="Current" />
 
             <TextView
@@ -84,22 +83,6 @@
                 android:textAlignment="center"
                 android:visibility="invisible" />
 
-            <TextView
-                android:id="@+id/trackID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tracklink"
-                android:textAlignment="center"
-                android:visibility="invisible" />
-
-            <TextView
-                android:id="@+id/track"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/trackID"
-                android:text="Click above link to track your order more accurately"
-                android:textAlignment="center"
-                android:visibility="invisible" />
         </RelativeLayout>
 
         <TextView

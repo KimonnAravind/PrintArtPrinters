@@ -20,7 +20,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Main2Activity"></activity>
+        <activity android:name=".TrackingDetailsActivity"></activity>
+        <activity android:name=".Main2Activity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -40,9 +41,7 @@
         <activity android:name=".ReferandEarnActivity" />
         <activity android:name=".TermsandConditionsActivity" />
         <activity android:name=".AddressUpdateActivity" />
-        <activity android:name=".WelcomeScreenActivity">
-
-        </activity>
+        <activity android:name=".WelcomeScreenActivity"></activity>
         <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -86,6 +85,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
             android:value="true" />

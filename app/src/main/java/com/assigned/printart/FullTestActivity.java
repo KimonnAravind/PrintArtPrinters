@@ -28,9 +28,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
-public class FullTestActivity extends AppCompatActivity {
+public class FullTestActivity extends AppCompatActivity implements View.OnClickListener {
     String keyV;
-    TextView currentStatus,placedDate, current;
+    TextView currentStatus, placedDate, current;
     String Orders;
     ImageView ims;
     RecyclerView recyclerView;
@@ -52,7 +52,7 @@ public class FullTestActivity extends AppCompatActivity {
         DisplayReference = FirebaseDatabase.getInstance().getReference().child("PlacedOrders").child(Contact).child(keyV);
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(false);
-        placedDate = (TextView)findViewById(R.id.placedDate);
+        placedDate = (TextView) findViewById(R.id.placedDate);
         current = (TextView) findViewById(R.id.current);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
@@ -67,9 +67,7 @@ public class FullTestActivity extends AppCompatActivity {
                 R.drawable.cc,
                 R.drawable.d,
                 R.drawable.e};
-        trackID = (TextView) findViewById(R.id.trackID);
         trackLink = (TextView) findViewById(R.id.tracklink);
-        track = (TextView) findViewById(R.id.track);
         currentStatus = (TextView) findViewById(R.id.currentStauts);
         currentStatus.setText("" + Orders);
     }
@@ -77,7 +75,6 @@ public class FullTestActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
 
 
         FirebaseRecyclerOptions<DisplayProducts> options = new FirebaseRecyclerOptions.Builder<DisplayProducts>()
@@ -123,34 +120,29 @@ public class FullTestActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         adapter.startListening();
 
-        placedDate.setText("Ordered on: \n"+keyV);
+        placedDate.setText("Ordered on: \n" + keyV);
+        current.setText(Orders);
+
+        ims.setOnClickListener(this);
+        placedDate.setOnClickListener(this);
+        current.setOnClickListener(this);
     }
 
-    private void showTrackingDetails() {
-        track.setVisibility(View.VISIBLE);
-        trackLink.setVisibility(View.VISIBLE);
-        trackID.setVisibility(View.VISIBLE);
-        DisplayReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child("TLink").exists()) {
-                    trackLink.setText(dataSnapshot.child("TLink").getValue().toString());
-                    trackID.setText(dataSnapshot.child("TId").getValue().toString());
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-    }
 
     @Override
     public boolean onNavigateUp() {
         finish();
         return super.onNavigateUp();
+    }
+
+    @Override
+    public void onClick(View v) {
+        toNextPage();
+    }
+
+    private void toNextPage() {
+    Intent intent = new Intent(FullTestActivity.this,TrackingDetailsActivity.class);
+    intent.putExtra("Status",Orders);
+    startActivity(intent);
     }
 }
