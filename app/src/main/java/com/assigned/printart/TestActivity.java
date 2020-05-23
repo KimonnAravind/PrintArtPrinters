@@ -49,7 +49,6 @@ public class TestActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         textureArrayWin = new int[]{
-                R.drawable.sta1,
                 R.drawable.sta2,
                 R.drawable.sta3,
                 R.drawable.sta4,
@@ -72,7 +71,29 @@ public class TestActivity extends AppCompatActivity {
                 holder.cost.setText(model.getNameop() + " + "+ model.getNOP()+" other products");
                 holder.credit.setText("Paid: ₹" + model.getOriginal());
                 Picasso.get().load(model.getThumN()).into(holder.statuspic);
-
+                switch (model.getOrderstatus())
+                {
+                    case "Approved":
+                    {
+                        holder.orderstatusbar.setImageResource(textureArrayWin[0]);
+                        break;
+                    }
+                    case "Packed":
+                    {
+                        holder.orderstatusbar.setImageResource(textureArrayWin[1]);
+                        break;
+                    }
+                    case "Dispatched":
+                    {
+                        holder.orderstatusbar.setImageResource(textureArrayWin[2]);
+                        break;
+                    }
+                    case "Delivered":
+                    {
+                        holder.orderstatusbar.setImageResource(textureArrayWin[3]);
+                        break;
+                    }
+                }
 
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {

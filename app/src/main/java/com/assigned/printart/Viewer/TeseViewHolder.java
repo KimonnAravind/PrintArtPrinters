@@ -11,7 +11,7 @@ import com.assigned.printart.R;
 
 public class TeseViewHolder extends RecyclerView.ViewHolder {
     public static TextView testtexview, deliverydate, cost, credit;
-    public static ImageView statuspic;
+    public static ImageView statuspic, orderstatusbar;
     public TeseViewHolder(@NonNull View itemView) {
         super(itemView);
 
@@ -20,5 +20,6 @@ public class TeseViewHolder extends RecyclerView.ViewHolder {
         cost = itemView.findViewById(R.id.testCost);
         credit = itemView.findViewById(R.id.testCredit);
         statuspic = itemView.findViewById(R.id.statuspic);
+        orderstatusbar = itemView.findViewById(R.id.orderstatusbar);
     }
 }

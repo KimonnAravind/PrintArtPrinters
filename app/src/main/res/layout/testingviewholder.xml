@@ -29,6 +29,7 @@
             android:visibility="invisible" />
 
         <ImageView
+            android:id="@+id/orderstatusbar"
             android:layout_width="match_parent"
             android:layout_below="@id/testCredit"
             android:layout_height="50dp"
