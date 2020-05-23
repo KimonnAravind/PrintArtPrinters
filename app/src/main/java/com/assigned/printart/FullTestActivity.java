@@ -1,7 +1,9 @@
 package com.assigned.printart;
 
+import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,7 +97,7 @@ public class FullTestActivity extends AppCompatActivity {
 
         adapter = new FirebaseRecyclerAdapter<DisplayProducts, MyordersViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull MyordersViewHolder holder, int position, @NonNull DisplayProducts model) {
+            protected void onBindViewHolder(@NonNull MyordersViewHolder holder, int position, @NonNull final DisplayProducts model) {
                 holder.Pname.setText(model.getPame());
                 holder.PSPrice.setText("₹" + model.getPsp());
                 holder.POPrice.setText("₹" + model.getPpriceO() + " ");
@@ -107,7 +109,19 @@ public class FullTestActivity extends AppCompatActivity {
                 holder.b3.setText(" "+model.getType2()+" ");
                 int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
                 holder.discount.setText(""+(100-percent)+"%offer");
-                Picasso.get().load(model.getPro()).into(holder.imgv);}
+                Picasso.get().load(model.getPro()).into(holder.imgv);
+                holder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(FullTestActivity.this, DisplayProductActivity.class);
+                        intent.putExtra("Category",model.getCategory());
+                        intent.putExtra("TypeID", "01");
+
+                        startActivity(intent);
+                    }
+                });
+            }
+
 
             @NonNull
             @Override
