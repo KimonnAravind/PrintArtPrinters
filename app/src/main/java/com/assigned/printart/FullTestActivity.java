@@ -142,6 +142,7 @@ public class FullTestActivity extends AppCompatActivity implements View.OnClickL
 
     private void toNextPage() {
     Intent intent = new Intent(FullTestActivity.this,TrackingDetailsActivity.class);
+    intent.putExtra("Date", keyV);
     intent.putExtra("Status",Orders);
     startActivity(intent);
     }
