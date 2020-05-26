@@ -54,10 +54,10 @@
                     android:layout_marginLeft="25dp"
                     android:layout_toRightOf="@id/fdot"
                     android:drawableEnd="@drawable/ic_call_received_black_24dp"
-                    android:translationZ="@dimen/activity_horizontal_margin"
                     android:text="We have Received Your Order"
                     android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:translationZ="@dimen/activity_horizontal_margin" />
 
                 <TextView
                     android:id="@+id/orderedDate"
@@ -75,12 +75,55 @@
                     android:adjustViewBounds="true"
                     android:background="@drawable/lline" />
 
+
+                <TextView
+                    android:id="@+id/orderapproved"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/fline"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/sdot"
+                    android:drawableEnd="@drawable/ic_add_alert_black_24dp"
+                    android:enabled="false"
+                    android:text="We are working on your order"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:translationZ="@dimen/activity_horizontal_margin" />
+
+                <TextView
+                    android:id="@+id/orderpacked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/sline"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/tdot"
+                    android:drawableEnd="@drawable/dispatches"
+                    android:enabled="false"
+                    android:text="Ready to dispatch"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:translationZ="@dimen/activity_horizontal_margin" />
+
+                <TextView
+                    android:id="@+id/ordershipped"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tline"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/tdot"
+                    android:drawableEnd="@drawable/shuttle"
+                    android:enabled="false"
+                    android:text="Your package has been shipped"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:translationZ="@dimen/activity_horizontal_margin" />
+
                 <ImageView
                     android:id="@+id/sdot"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/fline"
+                    android:layout_marginLeft="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
 
@@ -96,8 +139,8 @@
                     android:id="@+id/tdot"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/sline"
+                    android:layout_marginLeft="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
 
@@ -113,8 +156,8 @@
                     android:id="@+id/frdot"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/tline"
+                    android:layout_marginLeft="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
 
@@ -131,11 +174,10 @@
                     android:id="@+id/fvdot"
                     android:layout_width="15dp"
                     android:layout_height="15dp"
-                    android:layout_marginLeft="5dp"
                     android:layout_below="@+id/frline"
+                    android:layout_marginLeft="5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/dot" />
-
 
             </RelativeLayout>
         </androidx.core.widget.NestedScrollView>
