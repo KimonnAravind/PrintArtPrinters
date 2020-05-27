@@ -66,6 +66,14 @@
                     android:layout_below="@id/orderconfirmed"
                     android:layout_toRightOf="@id/fline"
                     android:text="Ordered Date" />
+                <TextView
+                    android:id="@+id/deliveryDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orderdelivered"
+                    android:layout_toRightOf="@id/fline"
+                    android:text="Deliveery Date" />
+
 
                 <ImageView
                     android:id="@+id/fline"
@@ -117,6 +125,20 @@
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:translationZ="@dimen/activity_horizontal_margin" />
+
+                <TextView
+                    android:id="@+id/orderdelivered"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/frline"
+                    android:layout_marginLeft="25dp"
+                    android:layout_toRightOf="@id/tdot"
+                    android:drawableEnd="@drawable/ic_card_membership_black_24dp"
+                    android:text="Expected delivery date"
+                    android:textSize="18dp"
+                    android:textStyle="bold"
+                    android:translationZ="@dimen/activity_horizontal_margin" />
+
 
                 <ImageView
                     android:id="@+id/sdot"

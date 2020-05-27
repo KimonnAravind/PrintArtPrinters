@@ -144,6 +144,7 @@ public class FullTestActivity extends AppCompatActivity implements View.OnClickL
     Intent intent = new Intent(FullTestActivity.this,TrackingDetailsActivity.class);
     intent.putExtra("Date", keyV);
     intent.putExtra("Status",Orders);
+    intent.putExtra("Contact",Contact);
     startActivity(intent);
     }
 }
