@@ -119,6 +119,7 @@ public class TrackingDetailsActivity extends AppCompatActivity {
             five.setEnabled(true);
             six.setEnabled(true);
             seven.setEnabled(true);
+            seven.setText("Delivered on");
             break;
         }
 
