@@ -28,16 +28,10 @@
                 app:popupTheme="@style/AppTheme.PopupOverlay" />
         </com.google.android.material.appbar.AppBarLayout>
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:adjustViewBounds="true"
-            android:layout_margin="25dp"
-            android:src="@drawable/customercare" />
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_margin="25dp">
 
             <TextView
@@ -101,6 +95,13 @@
                 android:textAlignment="center"
                 android:layout_marginTop="10dp"
                 android:text="Our Executive will respond and give you a solution withing 6 working hours between 09:00 AM to 09:00 PM"
+                />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/handd"
+                android:layout_alignParentBottom="true"
                 />
         </RelativeLayout>
 
