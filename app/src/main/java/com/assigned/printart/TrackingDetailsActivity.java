@@ -27,7 +27,7 @@ public class TrackingDetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tracking_details);
 
         Toolbar toolbar = findViewById(R.id.toolbarS);
-        toolbar.setTitle("Order Status");
+        toolbar.setTitle("Track Status");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
