@@ -66,12 +66,39 @@
                     android:layout_below="@id/orderconfirmed"
                     android:layout_toRightOf="@id/fline"
                     android:text="Ordered Date" />
+
+                <TextView
+                    android:id="@+id/orderedstatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orderapproved"
+                    android:enabled="false"
+                    android:layout_toRightOf="@id/fline"
+                    android:text="Under making process" />
+
+                <TextView
+                    android:id="@+id/orderedreadytodispatch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/orderpacked"
+                    android:enabled="false"
+                    android:layout_toRightOf="@id/fline"
+                    android:text="Order packed" />
+                <TextView
+                    android:id="@+id/ordersent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ordershipped"
+                    android:enabled="false"
+                    android:layout_toRightOf="@id/fline"
+                    android:text="On your way" />
                 <TextView
                     android:id="@+id/deliveryDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/orderdelivered"
                     android:layout_toRightOf="@id/fline"
+
                     android:text="Deliveery Date" />
 
 
@@ -97,6 +124,8 @@
                     android:textSize="18dp"
                     android:textStyle="bold"
                     android:translationZ="@dimen/activity_horizontal_margin" />
+
+
 
                 <TextView
                     android:id="@+id/orderpacked"
@@ -133,6 +162,7 @@
                     android:layout_below="@id/frline"
                     android:layout_marginLeft="25dp"
                     android:layout_toRightOf="@id/tdot"
+                    android:enabled="false"
                     android:drawableEnd="@drawable/ic_card_membership_black_24dp"
                     android:text="Expected delivery date"
                     android:textSize="18dp"

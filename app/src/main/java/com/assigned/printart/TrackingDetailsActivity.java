@@ -16,9 +16,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class TrackingDetailsActivity extends AppCompatActivity {
     TextView orderedDate;
-    String ordereddate,Status,Contact;
+    String ordereddate, Status, Contact;
     DatabaseReference databaseReference;
     TextView deliveryDate;
+    TextView one, two, three, four, five, six,seven;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,13 +33,25 @@ public class TrackingDetailsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         orderedDate = (TextView) findViewById(R.id.orderedDate);
-        ordereddate =getIntent().getStringExtra("Date");
+        ordereddate = getIntent().getStringExtra("Date");
         Status = getIntent().getStringExtra("Status");
         Contact = getIntent().getStringExtra("Contact");
 
         databaseReference = FirebaseDatabase.getInstance().getReference();
 
+        initiateall();
 
+        Toast.makeText(this, ""+Status, Toast.LENGTH_SHORT).show();
+    }
+
+    private void initiateall() {
+        one = (TextView) findViewById(R.id.orderapproved);
+        two = (TextView) findViewById(R.id.orderedstatus);
+        three = (TextView) findViewById(R.id.orderpacked);
+        four = (TextView) findViewById(R.id.orderedreadytodispatch);
+        five = (TextView) findViewById(R.id.ordershipped);
+        six = (TextView) findViewById(R.id.ordersent);
+        seven = (TextView)findViewById(R.id.orderdelivered);
     }
 
     @Override
@@ -50,11 +64,10 @@ public class TrackingDetailsActivity extends AppCompatActivity {
                 addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                   if(dataSnapshot.exists())
-                   {
-                       deliveryDate = (TextView)findViewById(R.id.deliveryDate);
-                       deliveryDate.setText(dataSnapshot.getValue().toString());
-                   }
+                        if (dataSnapshot.exists()) {
+                            deliveryDate = (TextView) findViewById(R.id.deliveryDate);
+                            deliveryDate.setText(dataSnapshot.getValue().toString());
+                        }
                     }
 
                     @Override
@@ -62,6 +75,54 @@ public class TrackingDetailsActivity extends AppCompatActivity {
 
                     }
                 });
+
+        displaystatus();
+    }
+
+    private void displaystatus() {
+    switch (Status)
+    {
+        case "Approved":
+        {
+            one.setEnabled(true);
+            two.setEnabled(true);
+            break;
+        }
+        case "Packed":
+        {
+            Toast.makeText(this, "Packed", Toast.LENGTH_SHORT).show();
+
+            one.setEnabled(true);
+            two.setEnabled(true);
+            three.setEnabled(true);
+            four.setEnabled(true);
+            break;
+        }
+        case "Dispatched":
+        {
+
+            one.setEnabled(true);
+            two.setEnabled(true);
+            three.setEnabled(true);
+            four.setEnabled(true);
+            five.setEnabled(true);
+            six.setEnabled(true);
+            break;
+        }
+        case "Delivered":
+        {
+
+            one.setEnabled(true);
+            two.setEnabled(true);
+            three.setEnabled(true);
+            four.setEnabled(true);
+            five.setEnabled(true);
+            six.setEnabled(true);
+            seven.setEnabled(true);
+            break;
+        }
+
+    }
     }
 
     @Override
