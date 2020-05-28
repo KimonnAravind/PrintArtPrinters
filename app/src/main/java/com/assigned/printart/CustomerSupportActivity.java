@@ -42,23 +42,14 @@ public class CustomerSupportActivity extends AppCompatActivity {
     }
 
     private boolean isPackinstalled(PackageManager packageManager) {
-        if (x == 1) {
+
             try {
                 packageManager.getPackageInfo("com.whatsapp", 0);
                 return true;
             } catch (PackageManager.NameNotFoundException e) {
                 return false;
             }
-        } else if (x == 2) {
-            try {
-                packageManager.getPackageInfo("com.google.android.gm", 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException e) {
-                return false;
-            }
-        }
 
-        return false;
     }
 
 
@@ -84,7 +75,6 @@ public class CustomerSupportActivity extends AppCompatActivity {
         clickheretochat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                x = 1;
                 installed = isPackinstalled(getPackageManager());
                 if (installed) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
