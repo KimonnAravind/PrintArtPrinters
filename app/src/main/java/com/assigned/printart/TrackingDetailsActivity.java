@@ -41,7 +41,6 @@ public class TrackingDetailsActivity extends AppCompatActivity {
 
         initiateall();
 
-        Toast.makeText(this, ""+Status, Toast.LENGTH_SHORT).show();
     }
 
     private void initiateall() {
@@ -90,7 +89,6 @@ public class TrackingDetailsActivity extends AppCompatActivity {
         }
         case "Packed":
         {
-            Toast.makeText(this, "Packed", Toast.LENGTH_SHORT).show();
 
             one.setEnabled(true);
             two.setEnabled(true);

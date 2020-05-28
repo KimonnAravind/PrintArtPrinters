@@ -67,44 +67,41 @@
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_toLeftOf="@id/two"
                 android:layout_below="@id/one"
                 android:layout_marginTop="25dp"
+                android:layout_toLeftOf="@id/two"
                 android:src="@drawable/gm" />
+
             <ImageView
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_toRightOf="@id/two"
                 android:layout_below="@id/one"
                 android:layout_marginTop="25dp"
+                android:layout_toRightOf="@id/two"
                 android:src="@drawable/gm" />
 
-            <TextView
+            <TextViewf
+                android:id="@id/three"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Click above number or mail ID to share your thoughts or querys with us!"
                 android:layout_below="@id/two"
-                android:textAlignment="center"
-                android:id="@id/three"
                 android:layout_marginTop="25dp"
-                />
+                android:text="Click above number or mail ID to share your thoughts or querys with us!"
+                android:textAlignment="center" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/three"
-                android:textAlignment="center"
                 android:layout_marginTop="10dp"
                 android:text="Our Executive will respond and give you a solution withing 6 working hours between 09:00 AM to 09:00 PM"
-                />
+                android:textAlignment="center" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/handd"
                 android:layout_alignParentBottom="true"
-                />
+                android:src="@drawable/handd" />
         </RelativeLayout>
-
     </LinearLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
