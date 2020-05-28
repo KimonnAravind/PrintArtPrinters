@@ -32,75 +32,35 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="25dp">
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="25dp">
 
-            <TextView
-                android:id="@+id/one"
-                android:layout_width="wrap_content"
+
+            <ImageView
+                android:id="@+id/clickheretostartchat"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:text="PhoneNumber"
-                android:textAlignment="center" />
+                android:src="@drawable/wpchat"
+                android:adjustViewBounds="true"
+                />
 
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_toLeftOf="@id/one"
-                android:src="@drawable/wp" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_toRightOf="@id/one"
-                android:src="@drawable/wp" />
-
-            <TextView
-                android:id="@+id/two"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/one"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="25dp"
-                android:text="EmailID"
-                android:textAlignment="center" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_below="@id/one"
-                android:layout_marginTop="25dp"
-                android:layout_toLeftOf="@id/two"
-                android:src="@drawable/gm" />
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_below="@id/one"
-                android:layout_marginTop="25dp"
-                android:layout_toRightOf="@id/two"
-                android:src="@drawable/gm" />
-
-            <TextViewf
-                android:id="@id/three"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/two"
-                android:layout_marginTop="25dp"
-                android:text="Click above number or mail ID to share your thoughts or querys with us!"
-                android:textAlignment="center" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/three"
+                android:layout_above="@+id/handsimg"
                 android:layout_marginTop="10dp"
                 android:text="Our Executive will respond and give you a solution withing 6 working hours between 09:00 AM to 09:00 PM"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@android:color/black" />
 
             <ImageView
+                android:id="@+id/handsimg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
+                android:adjustViewBounds="true"
                 android:src="@drawable/handd" />
         </RelativeLayout>
     </LinearLayout>

@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +21,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class CustomerSupportActivity extends AppCompatActivity {
 
-    TextView one, two;
     int x;
+    ImageView clickheretochat;
     DatabaseReference databaseReference;
     Boolean installed;
-
+    String one;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,9 +35,8 @@ public class CustomerSupportActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        one = (TextView) findViewById(R.id.one);
-        two = (TextView) findViewById(R.id.two);
 
+        clickheretochat = (ImageView)findViewById(R.id.clickheretostartchat);
         databaseReference  = FirebaseDatabase.getInstance().getReference().child("AdminControl");
 
     }
@@ -71,8 +71,7 @@ public class CustomerSupportActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists())
                 {
-                    one.setText(dataSnapshot.child("PhoneNumber").getValue().toString());
-                    two.setText(dataSnapshot.child("EmailID").getValue().toString());
+                    one=dataSnapshot.child("PhoneNumber").getValue().toString();
                 }
             }
 
@@ -82,32 +81,17 @@ public class CustomerSupportActivity extends AppCompatActivity {
             }
         });
 
-        one.setOnClickListener(new View.OnClickListener() {
+        clickheretochat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 x = 1;
                 installed = isPackinstalled(getPackageManager());
                 if (installed) {
                     Intent intent = new Intent(Intent.ACTION_VIEW);
-                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + one.getText().toString() + "&text=" + "PrintArt: "));
+                    intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + one+ "&text=" + "PrintArt: "));
                     startActivity(intent);
                 } else {
                     Toast.makeText(CustomerSupportActivity.this, "You don't have whatsapp in your device! Please install whatsapp and try again!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-        two.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                x = 2;
-                installed = isPackinstalled(getPackageManager());
-                if (installed) {
-                    Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                            "mailto", "wearepostermakers@gmail.com", null));
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, "PrintArt Sivakasi!");
-                    startActivity(Intent.createChooser(emailIntent, null));
-                } else {
-                    Toast.makeText(CustomerSupportActivity.this, "Gmail App is not in your device, Please install and try again!", Toast.LENGTH_SHORT).show();
                 }
             }
         });
