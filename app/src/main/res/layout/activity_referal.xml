@@ -31,16 +31,16 @@
         <EditText
             android:id="@+id/code"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_below="@id/dpicture"
             android:layout_marginLeft="75dp"
-            android:layout_marginTop="10dp"
+            android:textAlignment="center"
             android:background="@drawable/referaledittext"
             android:hint="                       "
             android:inputType="textCapCharacters"
             android:maxLength="8"
-            android:textAlignment="center"
-            android:textColor="@android:color/black"
+            android:fontFamily="@font/patrik"
+            android:textColor="@android:color/darker_gray"
             android:textSize="30dp" />
 
         <ImageView
@@ -90,12 +90,11 @@
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_below="@id/dpicture"
-            android:layout_marginTop="10dp"
             android:layout_toRightOf="@id/code"
             android:background="@drawable/buttonshape"
             android:enabled="false"
             android:text="Apply"
-            android:textColor="@android:color/white"
+            android:textColor="@android:color/black"
             android:visibility="visible" />
 
     </RelativeLayout>

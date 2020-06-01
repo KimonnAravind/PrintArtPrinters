@@ -1,6 +1,7 @@
 package com.assigned.printart;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
@@ -75,10 +76,10 @@ public class ReferalActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 if (s.length() == 8) {
                     reg.setEnabled(true);
-                    Toast.makeText(ReferalActivity.this, "Enable", Toast.LENGTH_SHORT).show();
+                    reg.setTextColor(Color.WHITE);
                 } else {
                     reg.setEnabled(false);
-                    Toast.makeText(ReferalActivity.this, "Disable", Toast.LENGTH_SHORT).show();
+                    reg.setTextColor(Color.BLACK);
                 }
             }
 
@@ -146,10 +147,7 @@ public class ReferalActivity extends AppCompatActivity {
                                                     Intent intent = new Intent(ReferalActivity.this, HomeActivity.class);
                                                     startActivity(intent);
                                                 }
-                                                else
-                                                {
-                                                    Toast.makeText(ReferalActivity.this, "Invalid Promo code!", Toast.LENGTH_SHORT).show();
-                                                }
+
                                             }
 
                                             @Override
@@ -164,6 +162,10 @@ public class ReferalActivity extends AppCompatActivity {
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
                                 }
                             });
+                        }
+                        else
+                        {
+                            Toast.makeText(ReferalActivity.this, "Invalid referral code!", Toast.LENGTH_SHORT).show();
                         }
                     }
                     @Override
