@@ -56,7 +56,7 @@ public class ReferalActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         welcome = (TextView) findViewById(R.id.welcome);
         skip = (TextView) findViewById(R.id.skip);
-        welcome.setText("Hi " + name + ", Successfully registered with PRINTART, Enter referal code if you have and enjoy additional 20 credit points with the existing 50 points!");
+        welcome.setText("Hi " + name + ", Received a referral code?");
         referafrnd = (TextView) findViewById(R.id.referfrnds);
         code = (EditText) findViewById(R.id.code);
         reg = (Button) findViewById(R.id.reg);
@@ -69,15 +69,16 @@ public class ReferalActivity extends AppCompatActivity {
         code.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if (s.length() <= 8) {
+                if (s.length() == 8) {
                     reg.setEnabled(true);
+                    Toast.makeText(ReferalActivity.this, "Enable", Toast.LENGTH_SHORT).show();
                 } else {
                     reg.setEnabled(false);
+                    Toast.makeText(ReferalActivity.this, "Disable", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -145,6 +146,10 @@ public class ReferalActivity extends AppCompatActivity {
                                                     Intent intent = new Intent(ReferalActivity.this, HomeActivity.class);
                                                     startActivity(intent);
                                                 }
+                                                else
+                                                {
+                                                    Toast.makeText(ReferalActivity.this, "Invalid Promo code!", Toast.LENGTH_SHORT).show();
+                                                }
                                             }
 
                                             @Override
@@ -208,7 +213,6 @@ public class ReferalActivity extends AppCompatActivity {
                         }
                     }
                 });
-
     }
 
     @Override

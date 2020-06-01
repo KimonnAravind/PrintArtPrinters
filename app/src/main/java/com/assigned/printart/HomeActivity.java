@@ -195,6 +195,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         @Override
                         public void onClick(View v) {
                             Toast.makeText(HomeActivity.this, "Clicked", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(HomeActivity.this, ReferalActivity.class);
+                            intent.putExtra("name", "filmy");
+                            intent.putExtra("contact", "7904168617");
+                            startActivity(intent);
                         }
                     });
                 }

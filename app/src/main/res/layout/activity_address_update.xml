@@ -63,11 +63,12 @@
             android:enabled="false"
             android:text="Update Address"
             android:textColor="@android:color/white" />
+
         <ImageView
             android:layout_width="match_parent"
-            android:layout_margin="50dp"
             android:layout_height="wrap_content"
+            android:layout_margin="50dp"
             android:adjustViewBounds="true"
-            android:src="@drawable/addressup"/>
+            android:src="@drawable/addressup" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

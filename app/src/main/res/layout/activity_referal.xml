@@ -26,7 +26,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="8dp"
         android:orientation="vertical">
 
         <EditText
@@ -34,9 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/dpicture"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="8dp"
-            android:hint="REFERAL CODE"
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/referaledittext"
+            android:hint="                       "
             android:inputType="textCapCharacters"
             android:maxLength="8"
             android:textAlignment="center"
@@ -45,22 +45,26 @@
 
         <ImageView
             android:id="@+id/dpicture"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_below="@id/welcome"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="5dp"
-            android:src="@drawable/rae"
-
-            />
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/announcerefferal" />
 
         <TextView
             android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
             android:layout_marginTop="75dp"
-            android:text="welcome"
-            android:textAlignment="center" />
+            android:layout_marginRight="8dp"
+            android:text="Hi Dude, Received a referral code?"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/skip"
@@ -83,13 +87,15 @@
 
         <Button
             android:id="@+id/reg"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="5dp"
-            android:background="@drawable/inputdesignsolid"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/dpicture"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/code"
+            android:background="@drawable/buttonshape"
             android:enabled="false"
-            android:text="Apply code"
+            android:text="Apply"
+            android:textColor="@android:color/white"
             android:visibility="visible" />
 
     </RelativeLayout>
