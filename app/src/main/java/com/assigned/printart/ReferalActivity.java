@@ -105,6 +105,7 @@ public class ReferalActivity extends AppCompatActivity {
                     referalcode = dataSnapshot.child("EndUsers").child(contact).child("Rcode").getValue().toString();
                 }
             }
+
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
@@ -162,12 +163,11 @@ public class ReferalActivity extends AppCompatActivity {
                                 public void onCancelled(@NonNull DatabaseError databaseError) {
                                 }
                             });
-                        }
-                        else
-                        {
+                        } else {
                             Toast.makeText(ReferalActivity.this, "Invalid referral code!", Toast.LENGTH_SHORT).show();
                         }
                     }
+
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
                     }
@@ -175,6 +175,7 @@ public class ReferalActivity extends AppCompatActivity {
             }
         });
     }
+
     private void referlink() {
         Log.e("DLINK", "CreateLink");
         DynamicLink dynamicLink = FirebaseDynamicLinks.getInstance().createDynamicLink()

@@ -34,12 +34,12 @@
             android:layout_height="40dp"
             android:layout_below="@id/dpicture"
             android:layout_marginLeft="75dp"
-            android:textAlignment="center"
             android:background="@drawable/referaledittext"
+            android:fontFamily="@font/patrik"
             android:hint="                       "
             android:inputType="textCapCharacters"
             android:maxLength="8"
-            android:fontFamily="@font/patrik"
+            android:textAlignment="center"
             android:textColor="@android:color/darker_gray"
             android:textSize="30dp" />
 
@@ -58,41 +58,40 @@
             android:id="@+id/welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18dp"
             android:layout_marginLeft="8dp"
             android:layout_marginTop="75dp"
             android:layout_marginRight="8dp"
             android:text="Hi Dude, Received a referral code?"
             android:textAlignment="center"
             android:textColor="@android:color/black"
+            android:textSize="18dp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/code"
-            >
+            android:layout_centerHorizontal="true"
+            android:orientation="horizontal">
+
             <TextView
                 android:id="@+id/skip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:textSize="15dp"
                 android:text="Don't have code     |"
+                android:textSize="15dp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/referfrnds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textStyle="bold"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="     Refer and Earn" />
-
+                android:text="     Refer and Earn"
+                android:textSize="15dp"
+                android:textStyle="bold" />
 
         </LinearLayout>
 
