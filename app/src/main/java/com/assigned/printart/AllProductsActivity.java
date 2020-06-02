@@ -30,6 +30,7 @@ public class AllProductsActivity extends AppCompatActivity {
     DatabaseReference DisplayReference;
     FirebaseRecyclerAdapter<DisplayCategory, AllProductsViewHolder> adapter;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
