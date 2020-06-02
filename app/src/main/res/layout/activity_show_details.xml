@@ -10,8 +10,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:background="@android:color/white"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -80,83 +80,115 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="ProductDescription"
-                android:textSize="17dp"
-                 />
+                android:textSize="17dp" />
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-
-                    android:id="@+id/sellingprice"
-                    android:layout_width="wrap_content"
-
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="Selling Price"
-                    android:textColor="@android:color/black"
-
-                    android:textSize="23sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/originalPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="Original Price"
-                    android:textSize="19dp" />
-
-                <TextView
-                    android:id="@+id/offerp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:text="off"
-                    android:textColor="@android:color/holo_green_light"
-                    android:textSize="19dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
-
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/sell"
+                <LinearLayout
+                    android:id="@+id/l2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+
+                        android:id="@+id/sellingprice"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="Selling Price"
+                        android:textColor="@android:color/black"
+                        android:textSize="23sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/originalPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="100"
+                        android:textSize="19dp" />
+
+                    <TextView
+                        android:id="@+id/offerp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="off"
+                        android:textColor="@android:color/holo_green_light"
+                        android:textSize="19dp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/l3"
+                    android:layout_below="@id/l2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:background="@drawable/popups"
-                    android:text="SellerName"
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="5dp"
-                    android:textSize="17dp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/spinningID"
+                    <TextView
+                        android:id="@+id/sell"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/popups"
+                        android:text="SellerName"
+                        android:textColor="@android:color/white"
+                        android:textSize="17dp"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:id="@+id/spinningID"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="5dp"
+                        android:entries="@array/numis"
+                        android:spinnerMode="dialog" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/uploaddesignl"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginLeft="50dp"
-                    android:entries="@array/numis"
-                    android:spinnerMode="dialog" />
+                    android:layout_marginLeft="75dp"
+                    android:visibility="gone"
+                    android:layout_marginRight="15dp"
+                    android:layout_alignParentEnd="true"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/uploaddesign"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="20dp"
+                        android:background="@drawable/ic_baseline_cloud_upload_24"
+                        android:backgroundTint="@color/flp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Upload Design"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
 
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="5dp"
-                android:enabled="false"
-                android:background="@android:color/darker_gray" />
+                android:layout_marginRight="5dp"
+                android:background="@android:color/darker_gray"
+                android:enabled="false" />
 
             <FrameLayout
                 android:layout_width="match_parent"
@@ -318,8 +350,7 @@ PrintArt serviece within 24 to 36 hours."
             android:background="@drawable/redbottom"
             app:itemIconTint="@android:color/black"
             app:itemTextColor="@android:color/black"
-            app:menu="@menu/addtocartandproceed">
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
+            app:menu="@menu/addtocartandproceed"></com.google.android.material.bottomnavigation.BottomNavigationView>
     </FrameLayout>
 
 

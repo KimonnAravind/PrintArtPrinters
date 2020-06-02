@@ -11,7 +11,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +55,8 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     ViewPager products;
     ProductAdapter aptr;
     int tot, tot1, tot2;
+    LinearLayout l1;
+    Button b1;
     String qty = "1";
     DatabaseReference databaseReferenceforwl;
     String times;
@@ -103,6 +107,8 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         spin.setPrompt("QTY");
         t5 = (TextView) findViewById(R.id.type5);
         t6 = (TextView) findViewById(R.id.type6);
+        b1=(Button)findViewById(R.id.uploaddesign);
+        l1=(LinearLayout)findViewById(R.id.uploaddesignl);
 
         addtowishlist = (ImageView) findViewById(R.id.addtowishlist);
 
@@ -150,6 +156,11 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                     int percent =y  * 100 / z;
                     offs.setText(""+(100-percent)+"%offer");
 
+                    if(dataSnapshot.child("type").getValue().toString().equals("Your Design"))
+                    {
+                        l1.setVisibility(View.VISIBLE);
+                    }
+
                 }
             }
 
@@ -159,6 +170,17 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         });
 
 
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            goingnext();
+            }
+        });
+    }
+    public void goingnext()
+    {
+        Intent intent = new Intent(ShowDetailsActivity.this, UploadingActivity.class);
+        startActivity(intent);
     }
 
     @Override

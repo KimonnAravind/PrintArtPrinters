@@ -20,7 +20,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".TrackingDetailsActivity"></activity>
+        <activity android:name=".UploadingActivity"></activity>
+        <activity android:name=".TrackingDetailsActivity" />
         <activity android:name=".Main2Activity" />
 
         <meta-data
@@ -41,7 +42,7 @@
         <activity android:name=".ReferandEarnActivity" />
         <activity android:name=".TermsandConditionsActivity" />
         <activity android:name=".AddressUpdateActivity" />
-        <activity android:name=".WelcomeScreenActivity"></activity>
+        <activity android:name=".WelcomeScreenActivity" />
         <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
