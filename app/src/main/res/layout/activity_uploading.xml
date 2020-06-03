@@ -41,8 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Share your Image design and print description here."
+            android:text="Choose your option to share your Image and description here to print."
             android:textAlignment="center"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
             android:textColor="@android:color/black"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -55,60 +57,111 @@
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp">
 
+
+            <LinearLayout
+                android:id="@+id/lss"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/cloud"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/ic_baseline_cloud_upload_24" />
+
+                <TextView
+                    android:id="@+id/one"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Single Image\n(not Recommended)"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Click here)"
+                    android:textAlignment="center"
+                    android:textColor="#0000FF"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/ls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/lss"
                 android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/whatsapp"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/wlogo" />
+                <ImageView
+                    android:id="@+id/whatsapp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/wlogo" />
+
+                <TextView
+                    android:id="@+id/twos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Send in\nWhatsapp\n(Recommended) in document format"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="(Click here)"
                     android:textAlignment="center"
-                    android:text="Click here"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    />
+                    android:textColor="#0000FF"
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:layout_toRightOf="@id/ls"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="50dp"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/ls"
                 android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/gmail"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/glogo" />
+                <ImageView
+                    android:id="@+id/gmail"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/glogo" />
+
+                <TextView
+                    android:id="@+id/three"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="(Recommended) for best results"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/black"
+                    android:textStyle="bold" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:text="(Click here)"
                     android:textAlignment="center"
-                    android:text="Click here"
-                    android:textColor="@android:color/black"
-                    android:textStyle="bold"
-                    />
-        </LinearLayout>
+                    android:textColor="#0000FF"
+                    android:textStyle="bold" />
+            </LinearLayout>
         </RelativeLayout>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:layout_below="@id/t2"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="25dp"
+            android:layout_marginTop="100dp"
             android:layout_marginRight="25dp"
             android:text="Once you shared the details just continue to Order!"
             android:textAlignment="center"

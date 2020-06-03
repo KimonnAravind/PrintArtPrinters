@@ -9,13 +9,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class UploadingActivity extends AppCompatActivity {
 
 
-    ImageView whatsapp, gmail;
+    ImageView whatsapp, gmail, cloud;
     int Choice;
+    TextView one, two, three;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,10 @@ public class UploadingActivity extends AppCompatActivity {
 
         whatsapp = (ImageView) findViewById(R.id.whatsapp);
         gmail = (ImageView) findViewById(R.id.gmail);
+        cloud = (ImageView) findViewById(R.id.cloud);
+        one = (TextView) findViewById(R.id.one);
+        two = (TextView) findViewById(R.id.twos);
+        three = (TextView) findViewById(R.id.three);
 
         whatsapp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +51,38 @@ public class UploadingActivity extends AppCompatActivity {
                 openapplication(Choice, getPackageManager());
             }
         });
+
+        two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice = 1;
+                openapplication(Choice, getPackageManager());
+            }
+        });
+        three.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Choice = 2;
+                openapplication(Choice, getPackageManager());
+            }
+        });
+
+        cloud.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadinfdb();
+            }
+        });
+        one.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadinfdb();
+            }
+        });
+    }
+
+    private void uploadinfdb() {
+        
     }
 
     private int openapplication(int choice, PackageManager packageManager) {
@@ -74,15 +112,13 @@ public class UploadingActivity extends AppCompatActivity {
                 "mailto", "wearepostermakers@gmail.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "PrintArt Sivakasi!");
         startActivity(Intent.createChooser(emailIntent, null));
-
     }
 
     private void startWhatsapp() {
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + "+917904168617" + "&text=" + "PrintArt: "));
+        intent.setData(Uri.parse("https://api.whatsapp.com/send?phone=" + "+918870958617" + "&text=" + "PrintArt: "));
         startActivity(intent);
     }
-
 
     @Override
     public boolean onSupportNavigateUp() {
