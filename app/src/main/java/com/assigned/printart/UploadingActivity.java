@@ -82,7 +82,8 @@ public class UploadingActivity extends AppCompatActivity {
     }
 
     private void uploadinfdb() {
-        
+        Intent intent = new Intent(UploadingActivity.this, ImageUploadActivity.class);
+        startActivity(intent);
     }
 
     private int openapplication(int choice, PackageManager packageManager) {
