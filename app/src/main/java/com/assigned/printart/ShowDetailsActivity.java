@@ -173,7 +173,15 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                goingnext();
+
+                if (!strs.equals("0000000000")) {
+                    goingnext();
+                } else {
+                    Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
     }
@@ -287,7 +295,12 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         addtowishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addtoWL(ProductDetailsRef.child(CategoryID).child(DisplayID), databaseReferenceforwl);
+                if (!strs.equals("0000000000")) {
+                    addtoWL(ProductDetailsRef.child(CategoryID).child(DisplayID), databaseReferenceforwl);
+                } else {
+                    Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             private void addtoWL(DatabaseReference child, final DatabaseReference databaseReferenceforwl) {
@@ -383,7 +396,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
             } */ else {
 
 
-                Toast.makeText(ShowDetailsActivity.this, "Cannot Add", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
                 startActivity(intent);
             }
@@ -396,7 +409,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                 intent.putExtra("us", strs);
                 startActivity(intent);
             } else {
-                Toast.makeText(ShowDetailsActivity.this, "Cannot Add", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
                 startActivity(intent);
             }
