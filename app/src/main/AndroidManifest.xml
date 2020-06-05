@@ -20,7 +20,9 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".ImageUploadActivity"></activity>
+        <activity
+            android:name=".ImageUploadActivity"
+            ></activity>
         <activity android:name=".UploadingActivity" />
         <activity android:name=".TrackingDetailsActivity" />
         <activity android:name=".Main2Activity" />

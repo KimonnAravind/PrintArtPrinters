@@ -13,22 +13,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.assigned.printart.Paper.PaperStore;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.StorageTask;
 import com.google.firebase.storage.UploadTask;
+import com.wang.avi.AVLoadingIndicatorView;
+
+import io.paperdb.Paper;
 
 public class ImageUploadActivity extends AppCompatActivity {
-    ImageView imageView;
+    ImageView imageView, imgview;
     Button button;
+    EditText textView;
     Uri imageuri;
+    AVLoadingIndicatorView loader;
     StorageReference storageReference;
     StorageTask storageTask;
+    String Pnumber, Description = "Empty";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +49,21 @@ public class ImageUploadActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        loader = (AVLoadingIndicatorView) findViewById(R.id.loader);
+        textView = (EditText) findViewById(R.id.textv);
         imageView = (ImageView) findViewById(R.id.imageview);
+        imgview = (ImageView) findViewById(R.id.imgview);
         button = (Button) findViewById(R.id.button);
-        storageReference = FirebaseStorage.getInstance().getReference("AppUpload").child("First");
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Pnumber = Paper.book().read(PaperStore.UserLoginID);
+        storageReference = FirebaseStorage.getInstance().getReference("PrintUpload").child(Pnumber);
+
+
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,15 +77,19 @@ public class ImageUploadActivity extends AppCompatActivity {
                     Toast.makeText(ImageUploadActivity.this, "Upload in Progress", Toast.LENGTH_SHORT).show();
                 } else {
                     fileUploader();
+                    loader.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
+                    textView.setVisibility(View.GONE);
                 }
-
             }
         });
+
+
     }
 
-
     private void fileUploader() {
-        StorageReference storageReference1 = storageReference.child(System.currentTimeMillis() + "." + getextofimage(imageuri));
+        Description = textView.getText().toString();
+        StorageReference storageReference1 = storageReference.child(Description + "__" + System.currentTimeMillis() + "." + getextofimage(imageuri));
 
         storageTask = storageReference1.putFile(imageuri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -73,6 +98,12 @@ public class ImageUploadActivity extends AppCompatActivity {
                         // Get a URL to the uploaded content
                         //Uri downloadUrl = taskSnapshot.getDownloadUrl();
                         Toast.makeText(ImageUploadActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                        loader.setVisibility(View.GONE);
+                        imageView.setVisibility(View.VISIBLE);
+                        textView.setVisibility(View.VISIBLE);
+                        textView.setText("");
+                        imgview.setImageResource(R.drawable.uploadedsuccessfully);
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -80,6 +111,7 @@ public class ImageUploadActivity extends AppCompatActivity {
                     public void onFailure(@NonNull Exception exception) {
                         // Handle unsuccessful uploads
                         // ...
+                        Toast.makeText(ImageUploadActivity.this, "Image upload failed, Please try again!", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -102,8 +134,9 @@ public class ImageUploadActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageuri = data.getData();
-            imageView.setImageURI(imageuri);
+            imgview.setImageURI(imageuri);
             button.setTextColor(Color.WHITE);
+            textView.setVisibility(View.VISIBLE);
             button.setEnabled(true);
         }
     }

@@ -65,7 +65,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     private List<ProductBanners> productBannersList = new ArrayList<>();
     private int currentposition = 0;
     private DatabaseReference ProductDetailsRef;
-    TextView t1, t2, t3, t4, t5, t6,offs;
+    TextView t1, t2, t3, t4, t5, t6, offs;
     DatabaseReference databaseReference;
     private TextView Pname, PDes, POprice, PSprice, Sellers;
     RecyclerView recyclerView;
@@ -77,6 +77,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     HashMap<String, Object> PriceMap = new HashMap<>();
     ImageView addtowishlist;
     String np;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +87,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         Toast.makeText(this, "" + CategoryID, Toast.LENGTH_SHORT).show();
         times = getIntent().getStringExtra("Time");
         h = getIntent().getStringExtra("IDs");
-        offs = (TextView)findViewById(R.id.offerp);
+        offs = (TextView) findViewById(R.id.offerp);
         t1 = (TextView) findViewById(R.id.type1);
         databaseReference = FirebaseDatabase.getInstance().getReference();
         strs = Paper.book().read(PaperStore.UserLoginID);
@@ -107,8 +108,8 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         spin.setPrompt("QTY");
         t5 = (TextView) findViewById(R.id.type5);
         t6 = (TextView) findViewById(R.id.type6);
-        b1=(Button)findViewById(R.id.uploaddesign);
-        l1=(LinearLayout)findViewById(R.id.uploaddesignl);
+        b1 = (Button) findViewById(R.id.uploaddesign);
+        l1 = (LinearLayout) findViewById(R.id.uploaddesignl);
 
         addtowishlist = (ImageView) findViewById(R.id.addtowishlist);
 
@@ -146,18 +147,17 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                     z = Integer.parseInt(dataSnapshot.child("PpriceO").getValue().toString());
                     POprice.setPaintFlags(POprice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
                     PSprice.setText("₹" + dataSnapshot.child("Psp").getValue().toString());
-                    Sellers.setText(" "+dataSnapshot.child("Seller").getValue().toString()+" ");
+                    Sellers.setText(" " + dataSnapshot.child("Seller").getValue().toString() + " ");
                     t1.setText(dataSnapshot.child("type").getValue().toString());
                     t2.setText(dataSnapshot.child("type1").getValue().toString());
                     t3.setText(dataSnapshot.child("type2").getValue().toString());
                     t4.setText(dataSnapshot.child("type3").getValue().toString());
                     t5.setText(dataSnapshot.child("type4").getValue().toString());
                     t6.setText(dataSnapshot.child("type5").getValue().toString());
-                    int percent =y  * 100 / z;
-                    offs.setText(""+(100-percent)+"%offer");
+                    int percent = y * 100 / z;
+                    offs.setText("" + (100 - percent) + "%offer");
 
-                    if(dataSnapshot.child("type").getValue().toString().equals("Your Design"))
-                    {
+                    if (dataSnapshot.child("type").getValue().toString().equals("Your Design")) {
                         l1.setVisibility(View.VISIBLE);
                     }
 
@@ -173,12 +173,12 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            goingnext();
+                goingnext();
             }
         });
     }
-    public void goingnext()
-    {
+
+    public void goingnext() {
         Intent intent = new Intent(ShowDetailsActivity.this, UploadingActivity.class);
         startActivity(intent);
     }
@@ -218,7 +218,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                 }
                 break;
         }
-                    return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -241,13 +241,13 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                 holder.PSPrice.setText("₹" + model.getPsp());
                 holder.POPrice.setText("₹" + model.getPpriceO() + " ");
                 holder.Pdes.setText(model.getPdes());
-                holder.Seller.setText(" "+model.getSeller()+" ");
+                holder.Seller.setText(" " + model.getSeller() + " ");
                 holder.POPrice.setPaintFlags(holder.POPrice.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                holder.b1.setText(" "+model.getType()+" ");
-                holder.b2.setText(" "+model.getType1()+" ");
-                holder.b3.setText(" "+model.getType2()+" ");
-                int percent =Integer.valueOf(model.getPsp())  * 100 / Integer.valueOf(model.getPpriceO());
-                holder.discount.setText(""+(100-percent)+"%offer");
+                holder.b1.setText(" " + model.getType() + " ");
+                holder.b2.setText(" " + model.getType1() + " ");
+                holder.b3.setText(" " + model.getType2() + " ");
+                int percent = Integer.valueOf(model.getPsp()) * 100 / Integer.valueOf(model.getPpriceO());
+                holder.discount.setText("" + (100 - percent) + "%offer");
                 Picasso.get().load(model.getPro()).into(holder.imgv);
 
                 holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -382,6 +382,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                 Toast.makeText(this, "Clickl" + qty, Toast.LENGTH_SHORT).show();
             } */ else {
 
+
                 Toast.makeText(ShowDetailsActivity.this, "Cannot Add", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
                 startActivity(intent);
@@ -389,10 +390,16 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
 
         } else if (id == R.id.action_settingsa) {
 
-            Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
-            addtocart(ProductDetailsRef.child(CategoryID).child(DisplayID), wishListReference);
-            intent.putExtra("us", strs);
-            startActivity(intent);
+            if (!strs.equals("0000000000")) {
+                Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
+                addtocart(ProductDetailsRef.child(CategoryID).child(DisplayID), wishListReference);
+                intent.putExtra("us", strs);
+                startActivity(intent);
+            } else {
+                Toast.makeText(ShowDetailsActivity.this, "Cannot Add", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
         }
         return true;
     }

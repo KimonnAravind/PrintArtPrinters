@@ -46,7 +46,7 @@ public class CartActivity extends AppCompatActivity {
     private TextView deliveryAdd;
     Button changeAdd, updateadd;
     private EditText deliveryless, pinc;
-    String thum,numop,nameop;
+    String thum, numop, nameop;
     int couty = 0;
     int temp, pay, as;
     String totalo;
@@ -105,9 +105,6 @@ public class CartActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("UserCart")
                 .child(users);
         pricereference = FirebaseDatabase.getInstance().getReference();
-
-
-
     }
 
     @Override
@@ -116,8 +113,7 @@ public class CartActivity extends AppCompatActivity {
         onstartcall();
     }
 
-    private void onstartcall()
-    {
+    private void onstartcall() {
         databaseReference.child("01").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -293,7 +289,7 @@ public class CartActivity extends AppCompatActivity {
                                                         intent.putExtra(users,"us");
                                                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                                         startActivity(intent);*/
-                                                       onstartcall();
+                                                        onstartcall();
                                                     }
                                                 }
                                             }
@@ -314,7 +310,7 @@ public class CartActivity extends AppCompatActivity {
 
             @Override
             public int getItemCount() {
-                numop =Integer.toString(super.getItemCount());
+                numop = Integer.toString(super.getItemCount());
                 return super.getItemCount();
             }
 
@@ -482,9 +478,9 @@ public class CartActivity extends AppCompatActivity {
         intent.putExtra("Totalo", "" + totalo);
         intent.putExtra("Savings", "" + temp);
         intent.putExtra("Sends", "" + sends);
-        intent.putExtra("thum",""+thum);
-        intent.putExtra("numop",""+numop);
-        intent.putExtra("nameop",nameop);
+        intent.putExtra("thum", "" + thum);
+        intent.putExtra("numop", "" + numop);
+        intent.putExtra("nameop", nameop);
         if (checkBox.isChecked()) {
             checkBox.toggle();
         }
