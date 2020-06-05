@@ -70,6 +70,8 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     private TextView Pname, PDes, POprice, PSprice, Sellers;
     RecyclerView recyclerView;
     String strs;
+    int range = 1;
+    boolean tof;
     Spinner spin;
     RecyclerView.LayoutManager manager;
     int x = 10, y, z;
@@ -159,6 +161,9 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
 
                     if (dataSnapshot.child("type").getValue().toString().equals("Your Design")) {
                         l1.setVisibility(View.VISIBLE);
+                        tof = true;
+                    } else {
+                        tof = false;
                     }
 
                 }
@@ -187,6 +192,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     }
 
     public void goingnext() {
+        range = 2;
         Intent intent = new Intent(ShowDetailsActivity.this, UploadingActivity.class);
         startActivity(intent);
     }
@@ -232,6 +238,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     @Override
     protected void onStart() {
         super.onStart();
+        //  Toast.makeText(this, ""+range, Toast.LENGTH_SHORT).show();
         FirebaseRecyclerOptions<DisplayProducts> options =
                 new FirebaseRecyclerOptions.Builder<DisplayProducts>().setQuery(ProductDetailsRef.child(CategoryID), DisplayProducts.class)
                         .build();
@@ -404,10 +411,27 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         } else if (id == R.id.action_settingsa) {
 
             if (!strs.equals("0000000000")) {
-                Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
-                addtocart(ProductDetailsRef.child(CategoryID).child(DisplayID), wishListReference);
-                intent.putExtra("us", strs);
-                startActivity(intent);
+
+                if (range == 1) {
+                    if (tof) {
+                        range = 2;
+                        Intent intent = new Intent(ShowDetailsActivity.this, UploadingActivity.class);
+                        startActivity(intent);
+                    } else {
+                        Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
+                        addtocart(ProductDetailsRef.child(CategoryID).child(DisplayID), wishListReference);
+                        intent.putExtra("us", strs);
+                        startActivity(intent);
+                    }
+
+                } else {
+                    Intent intent = new Intent(ShowDetailsActivity.this, CartActivity.class);
+                    addtocart(ProductDetailsRef.child(CategoryID).child(DisplayID), wishListReference);
+                    intent.putExtra("us", strs);
+                    startActivity(intent);
+                }
+
+
             } else {
                 Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
@@ -539,7 +563,7 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         qty = parent.getSelectedItem().toString();
-        Toast.makeText(this, "Val is" + parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
+        //  Toast.makeText(this, "Val is" + parent.getSelectedItem().toString(), Toast.LENGTH_SHORT).show();
     }
 
 
