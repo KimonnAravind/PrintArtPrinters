@@ -290,8 +290,6 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
         };
         recyclerView.setAdapter(optionis);
         optionis.startListening();
-
-
         addtowishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -299,6 +297,8 @@ public class ShowDetailsActivity extends AppCompatActivity implements ProductFir
                     addtoWL(ProductDetailsRef.child(CategoryID).child(DisplayID), databaseReferenceforwl);
                 } else {
                     Toast.makeText(ShowDetailsActivity.this, "Register with us to explore more!", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(ShowDetailsActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
 
             }

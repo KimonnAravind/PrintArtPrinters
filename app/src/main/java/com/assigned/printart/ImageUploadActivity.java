@@ -100,10 +100,9 @@ public class ImageUploadActivity extends AppCompatActivity {
                         Toast.makeText(ImageUploadActivity.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                         loader.setVisibility(View.GONE);
                         imageView.setVisibility(View.VISIBLE);
-                        textView.setVisibility(View.VISIBLE);
                         textView.setText("");
                         imgview.setImageResource(R.drawable.uploadedsuccessfully);
-
+                        textView.setVisibility(View.INVISIBLE);
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
