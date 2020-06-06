@@ -52,6 +52,7 @@
                         android:text="Wall Poster"
                         android:textColor="@android:color/black" />
 
+
                     <ImageView
                         android:id="@+id/mc"
                         android:layout_width="45dp"
