@@ -67,7 +67,6 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import io.paperdb.Paper;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, BottomNavigationView.OnNavigationItemSelectedListener {
-
     private AppBarConfiguration mAppBarConfiguration;
     String typepasser;
     private Timer timer;
@@ -99,6 +98,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+
         imageViewrande = (ImageView) findViewById(R.id.refandearn);
         loader = (AVLoadingIndicatorView) findViewById(R.id.loader);
         wpimg = (ImageView) findViewById(R.id.wpimg);
@@ -141,19 +142,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         UserPortal = FirebaseDatabase.getInstance().getReference();
         EndUserPortal = FirebaseDatabase.getInstance().getReference().child("EndUsers");
-        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
 
-
-        navigation.setOnNavigationItemSelectedListener(this);
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HomeActivity.this, AllProductsActivity.class);
-                typepasser = autoCompleteTextView.getText().toString();
-                intent.putExtra("Type", typepasser);
-                startActivity(intent);
-            }
-        });
 //////////////////////////////////////////////
         Query sorting;
         Random random = new Random();
@@ -278,6 +267,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View v) {
                 rande();
+            }
+        });
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+
+
+        navigation.setOnNavigationItemSelectedListener(this);
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HomeActivity.this, AllProductsActivity.class);
+                typepasser = autoCompleteTextView.getText().toString();
+                intent.putExtra("Type", typepasser);
+                startActivity(intent);
             }
         });
     }
