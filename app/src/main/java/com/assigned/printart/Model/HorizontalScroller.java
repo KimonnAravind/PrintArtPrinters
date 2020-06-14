@@ -1,18 +1,13 @@
 package com.assigned.printart.Model;
 
-public class HorizontalScroller
-{
+public class HorizontalScroller {
 
-    private String image;
+    private String image, blank;
 
-    public HorizontalScroller()
-    {
-    }
-    public HorizontalScroller(String image) {
-        this.image = image;
+    public HorizontalScroller() {
     }
 
-    public String getImage(){
+    public String getImage() {
         return image;
     }
 
@@ -20,4 +15,11 @@ public class HorizontalScroller
         this.image = image;
     }
 
+    public String getBlank() {
+        return blank;
+    }
+
+    public void setBlank(String blank) {
+        this.blank = blank;
+    }
 }

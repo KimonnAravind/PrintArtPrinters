@@ -136,6 +136,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         adapterH = new HorizontalAdapter(optionsb);
         recyclerview1.setAdapter(adapterH);
         adapterH.startListening();
+
         autoCompleteTextView = (AutoCompleteTextView) findViewById(R.id.autocompletetextview);
         autoCompleteTextView.setDropDownBackgroundDrawable(new ColorDrawable(getBaseContext().getResources().getColor(R.color.colorPrimaryDark)));
         autoCompleteTextView.setAdapter(new ArrayAdapter<>(HomeActivity.this, android.R.layout.simple_list_item_1, products));
@@ -499,7 +500,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 break;
             }
             case R.id.your_designs: {
-                //pending
+                if (s.equals("0000000000")) {
+                    taketoreg();
+                } else {
+                    Intent intent = new Intent(HomeActivity.this, YourDesignsActivity.class);
+                    startActivity(intent);
+                }
                 break;
             }
             case R.id.businessorbulk: {

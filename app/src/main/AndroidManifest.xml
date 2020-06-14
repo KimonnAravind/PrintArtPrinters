@@ -20,9 +20,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity
-            android:name=".ImageUploadActivity"
-            ></activity>
+        <activity android:name=".YourDesignsActivity"></activity>
+        <activity android:name=".ImageUploadActivity" />
         <activity android:name=".UploadingActivity" />
         <activity android:name=".TrackingDetailsActivity" />
         <activity android:name=".Main2Activity" />
@@ -45,7 +44,13 @@
         <activity android:name=".ReferandEarnActivity" />
         <activity android:name=".TermsandConditionsActivity" />
         <activity android:name=".AddressUpdateActivity" />
-        <activity android:name=".WelcomeScreenActivity" />
+        <activity android:name=".WelcomeScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".RegisterActivity"
             android:windowSoftInputMode="adjustResize" />
@@ -82,13 +87,7 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
