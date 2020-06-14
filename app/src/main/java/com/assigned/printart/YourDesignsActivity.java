@@ -22,6 +22,8 @@ public class YourDesignsActivity extends AppCompatActivity {
     YourDesignsPage adapterH;
     DatabaseReference banner;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
